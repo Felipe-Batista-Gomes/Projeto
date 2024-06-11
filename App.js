@@ -22,7 +22,15 @@ export default function App() {
           placeholder="Digite sua senha"
           style={styles.input}
         ></TextInput>
-        <Text>Esqueceu sua senha?</Text>
+        <Text
+          style={{
+            color: "darkblue",
+            borderBottomWidth: 1,
+            borderColor: "darkblue",
+          }}
+        >
+          Esqueceu sua senha?
+        </Text>
         <Pressable style={styles.botao}>
           <Text style={styles.buttxt}>Entrar</Text>
         </Pressable>
