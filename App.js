@@ -49,7 +49,7 @@ export default function App() {
             borderWidth: 1,
           }}
         >
-          <Text style={{ backgroundColor: "black" }}>
+          <Text style={{ backgroundColor: "white" }}>
             Não tem uma conta?
             <Text style={{ color: "red" }}> Registre-se!</Text>
           </Text>
