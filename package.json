@@ -12,11 +12,11 @@
     "@expo/metro-runtime": "~3.2.1",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/stack": "^6.3.29",
-    "expo": "^48.0.0",
+    "expo": "^51.0.14",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.71.3",
+    "react-native": "0.71.14",
     "react-native-web": "~0.18.11"
   },
   "devDependencies": {

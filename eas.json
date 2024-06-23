@@ -5,14 +5,22 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
-    },
+      "distribution": "internal"},
+    "production": {
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://api.production.com"
+      }
+      },
+    "test": {
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://api.production.com"
+      }
+      },
     "preview": {
       "distribution": "internal",
       "android":{
         "buildType": "apk"}
-    },
-    "production": {}
+    }
   },
   "submit": {
     "production": {}
