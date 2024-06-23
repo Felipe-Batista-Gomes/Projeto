@@ -13,6 +13,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.container2}>
+        <Image source={require(".\assets\logo.png")}/>
         <Text style={styles.titulo}>Login</Text>
         <TextInput
           placeholder="Digite seu email"

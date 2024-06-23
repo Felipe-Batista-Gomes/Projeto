@@ -15,13 +15,20 @@
       "supportsTablet": true
     },
     "android": {
+    "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.felipe_batista.ostra"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b98666ee-90be-43ca-8860-1e91c99e783c"
+      }
     }
   }
 }
