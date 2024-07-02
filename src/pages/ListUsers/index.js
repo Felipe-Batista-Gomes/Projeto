@@ -9,33 +9,20 @@ import {
   Pressable,
 } from "react-native";
 
-export default function App() {
+export default function ListUsers() {
   return (
     <View style={styles.container}>
       <View style={styles.container2}>
-        <Image source={"assets/logo.png"} style={styles.logo} />
-        <Text style={styles.titulo}>Registro</Text>
-
+        <Image source={require(".assetslogo.png")} />
+        <Text style={styles.titulo}>Login</Text>
         <TextInput
           placeholder="Digite seu email"
           style={styles.input}
         ></TextInput>
-
-        <TextInput
-          placeholder="Digite seu nome completo"
-          style={styles.input}
-        ></TextInput>
-
-        <TextInput
-          placeholder="Digite o nome de usuário"
-          style={styles.input}
-        ></TextInput>
-
         <TextInput
           placeholder="Digite sua senha"
           style={styles.input}
         ></TextInput>
-
         <Text
           style={{
             color: "darkblue",
@@ -45,11 +32,11 @@ export default function App() {
         >
           Esqueceu sua senha?
         </Text>
+        <Pressable style={styles.botao}>
+          <Text style={styles.buttxt}>Entrar</Text>
+        </Pressable>
       </View>
       <View style={styles.container2}>
-        <Pressable style={styles.botao}>
-          <Text style={styles.buttxt}>Registrar</Text>
-        </Pressable>
         <Pressable
           style={{
             alignItems: "center",
@@ -64,8 +51,8 @@ export default function App() {
           }}
         >
           <Text style={{ backgroundColor: "white" }}>
-            Já tem uma conta?
-            <Text style={{ color: "red" }}> Faça o Login!</Text>
+            Não tem uma conta?
+            <Text style={{ color: "red" }}> Registre-se!</Text>
           </Text>
         </Pressable>
       </View>
@@ -75,20 +62,20 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    marginTop: 250,
+    alignItems: "center",
+    justifyContent: "center",
   },
   container2: {
-    padding: 10,
     marginTop: 10,
     alignItems: "center",
     justifyContent: "center",
   },
   titulo: {
-    fontSize: 30,
+    fontSize: 20,
   },
   input: {
     width: 300,
-    height: 50,
     marginTop: 25,
     padding: 5,
     borderWidth: 1,
@@ -98,7 +85,6 @@ const styles = StyleSheet.create({
   botao: {
     alignItems: "center",
     width: 300,
-    height: 50,
     marginTop: 25,
     padding: 5,
     borderRadius: 5,
@@ -108,10 +94,5 @@ const styles = StyleSheet.create({
   },
   buttxt: {
     color: "white",
-  },
-  logo: {
-    width: 200,
-    height: 200,
-    marginBottom: 20,
   },
 });

@@ -9,35 +9,43 @@ import {
   Pressable,
 } from "react-native";
 
-export default function App() {
+import { useNavigation } from "@react-navigation/native";
+
+export default function Prob() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.container2}>
-        <Image source={"assets/logo.png"} style={styles.logo} />
-        <Text style={styles.titulo}>Login</Text>
+        <Image
+          source={require("E:/my-app/assets/logo.png")}
+          style={styles.logo}
+        />
+        <Text style={styles.titulo}>Não consegue logar?</Text>
+        <Text style={{ color: "grey", paddingBottom: 10, fontSize: 13 }}>
+          Informe seu email, e te mandaremos um código para redefinir sua senha.
+        </Text>
         <TextInput
           placeholder="Digite seu email"
           style={styles.input}
         ></TextInput>
-        <TextInput
-          placeholder="Digite sua senha"
-          style={styles.input}
-        ></TextInput>
-        <Text
-          style={{
-            color: "darkblue",
-            borderBottomWidth: 1,
-            borderColor: "darkblue",
-          }}
-        >
-          Esqueceu sua senha?
-        </Text>
+        <Pressable style={styles.botao}>
+          <Text style={styles.buttxt}>Enviar código</Text>
+        </Pressable>
+        <Text style={{ color: "grey", padding: 20, paddingBottom: 0 }}>Ou</Text>
       </View>
       <View style={styles.container2}>
-        <Pressable style={styles.botao}>
-          <Text style={styles.buttxt}>Entrar</Text>
+        <Pressable
+          onPress={() => {
+            navigation.navigate("Login");
+          }}
+          style={styles.botao}
+        >
+          <Text style={styles.buttxt}>Voltar à tela de login</Text>
         </Pressable>
         <Pressable
+          onPress={() => {
+            navigation.navigate("Registro");
+          }}
           style={{
             alignItems: "center",
             width: 300,
@@ -50,9 +58,8 @@ export default function App() {
             borderWidth: 1,
           }}
         >
-          <Text style={{ backgroundColor: "white" }}>
-            Não tem uma conta?
-            <Text style={{ color: "red" }}> Registre-se!</Text>
+          <Text style={{ backgroundColor: "white", color: "red" }}>
+            Criar uma nova conta
           </Text>
         </Pressable>
       </View>
@@ -65,12 +72,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container2: {
+    padding: 10,
     marginTop: 10,
     alignItems: "center",
     justifyContent: "center",
   },
   titulo: {
-    fontSize: 20,
+    fontSize: 30,
   },
   input: {
     width: 300,

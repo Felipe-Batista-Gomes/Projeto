@@ -9,11 +9,17 @@ import {
   Pressable,
 } from "react-native";
 
-export default function App() {
+import { useNavigation } from "@react-navigation/native";
+
+export default function Login() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.container2}>
-        <Image source={"assets/logo.png"} style={styles.logo} />
+        <Image
+          source={require("E:/my-app/assets/logo.png")}
+          style={styles.logo}
+        />
         <Text style={styles.titulo}>Login</Text>
         <TextInput
           placeholder="Digite seu email"
@@ -23,21 +29,30 @@ export default function App() {
           placeholder="Digite sua senha"
           style={styles.input}
         ></TextInput>
-        <Text
+
+        <Pressable
+          onPress={() => {
+            navigation.navigate("Prob");
+          }}
           style={{
+            backgroundColor: "white",
             color: "darkblue",
             borderBottomWidth: 1,
             borderColor: "darkblue",
           }}
         >
           Esqueceu sua senha?
-        </Text>
-      </View>
-      <View style={styles.container2}>
+        </Pressable>
+
         <Pressable style={styles.botao}>
           <Text style={styles.buttxt}>Entrar</Text>
         </Pressable>
+      </View>
+      <View style={styles.container2}>
         <Pressable
+          onPress={() => {
+            navigation.navigate("Registro");
+          }}
           style={{
             alignItems: "center",
             width: 300,
@@ -65,12 +80,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container2: {
+    padding: 10,
     marginTop: 10,
     alignItems: "center",
     justifyContent: "center",
   },
   titulo: {
-    fontSize: 20,
+    fontSize: 30,
   },
   input: {
     width: 300,
