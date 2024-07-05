@@ -7,6 +7,7 @@ const Stack = createNativeStackNavigator();
 import Registro from "../screens/Registro";
 import Login from "../screens/Login";
 import Prob from "../screens/Prob";
+import Perfil from "../screens/Perfil";
 
 export default function Routes() {
   return (
@@ -26,6 +27,11 @@ export default function Routes() {
           name="Prob"
           component={Prob}
           options={{ headerTitle: "Tela de Problemas" }}
+        />
+        <Stack.Screen
+          name="Perfil"
+          component={Perfil}
+          options={{ headerTitle: "Tela do Perfil" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

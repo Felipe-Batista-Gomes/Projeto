@@ -70,6 +70,25 @@ export default function Login() {
             <Text style={{ color: "red" }}> Registre-se!</Text>
           </Text>
         </Pressable>
+
+        <Pressable
+          onPress={() => {
+            navigation.navigate("Perfil");
+          }}
+          style={{
+            alignItems: "center",
+            width: 300,
+            marginTop: 25,
+            padding: 5,
+            borderRadius: 5,
+            backgroundColor: "white",
+            text: "black",
+            padding: 10,
+            borderWidth: 1,
+          }}
+        >
+          <Text style={{ color: "red" }}>Perfil</Text>
+        </Pressable>
       </View>
     </View>
   );
