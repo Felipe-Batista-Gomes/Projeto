@@ -19,9 +19,9 @@ export default function Perfil() {
   return (
     <View style={{ flex: 1 }}>
       <ScrollView>
-        <View style={styles.container}>
-          <View style={styles.container2}></View>
-        </View>
+        <View style={styles.container}></View>
+
+        <View  style={styles.fotoperfilG}></View>
 
         <Text style={{ marginTop: 60, marginLeft: 40, fontSize: 30 }}>
           Seu nome
@@ -41,19 +41,18 @@ export default function Perfil() {
         >
           Sua descrição
         </Text>
+        <Text style={{fontSize: 15,width: "100%", borderTopWidth: 2, borderColor: "grey", marginTop: 20, marginLeft: 20}}>Seus Feedbacks</Text>
 
-        <Text
-          style={{
-            marginTop: 60,
-            fontSize: 20,
-            height: 300,
-            borderWidth: 3,
-            borderColor: "black",
-            padding: 20,
-          }}
-        >
-          Sua descrição2
-        </Text>
+        {/*Um feedback, com foto de perfil, o lugar avaliado, e as estrelas(a adicionar)*/}
+        <View style={{flex: 1, flexDirection: "row"}}>
+          <View style={styles.fotoperfilP}></View>
+          <View style={{marginTop: 15}}>
+            <Text style={{fontSize: 14}}>Lugar</Text>
+            <Text style={{fontSize: 14}}>Stjarna</Text>
+            <Text style={{fontSize: 14}}>Seu Feedback</Text>
+          </View>
+        </View>
+
       </ScrollView>
     </View>
   );
@@ -65,17 +64,29 @@ const styles = StyleSheet.create({
     backgroundColor: "orange",
     height: 300,
     width: "100%",
+    position: "absolute"
   },
-  container2: {
+  fotoperfilG: {
     borderTopLeftRadius: 100,
     borderTopRightRadius: 100,
     borderBottomLeftRadius: 100,
     borderBottomRightRadius: 100,
     backgroundColor: "#51C2E8",
     marginLeft: "5%",
-    marginTop: 200,
+    marginTop: 220,
     width: 150,
     height: 150,
+  },
+  fotoperfilP: {
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 100,
+    borderBottomLeftRadius: 100,
+    borderBottomRightRadius: 100,
+    backgroundColor: "#51C2E8",
+    marginLeft: "5%",
+    marginTop: 10,
+    width: 75,
+    height: 75,
   },
   titulo: {
     fontSize: 30,
