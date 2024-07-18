@@ -12,10 +12,13 @@ import {
   SafeAreaView,
 } from "react-native";
 
+import { Rating } from 'react-native-ratings';
+
 import { useNavigation } from "@react-navigation/native";
 
 export default function Perfil() {
   const navigation = useNavigation();
+  const ratingo = 3.5;
   return (
     <View style={{ flex: 1 }}>
       <ScrollView>
@@ -48,7 +51,8 @@ export default function Perfil() {
           <View style={styles.fotoperfilP}></View>
           <View style={{marginTop: 15}}>
             <Text style={{fontSize: 14}}>Lugar</Text>
-            <Text style={{fontSize: 14}}>Stjarna</Text>
+            <Rating name="half-rating" defaultValue={ratingo} startingValue={7} type="custom" ratingColor="orange" ratingBackgroundColor='darkgrey' ratingCount={10} imageSize={20} onFinishRating={this.ratingCompleted}/>
+            <Text>{ratingo}</Text>
             <Text style={{fontSize: 14}}>Seu Feedback</Text>
           </View>
         </View>
