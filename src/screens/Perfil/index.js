@@ -12,6 +12,8 @@ import {
   SafeAreaView,
 } from "react-native";
 
+import { Rating } from "react-native-ratings";
+
 import { useNavigation } from "@react-navigation/native";
 
 export default function Perfil() {
@@ -20,16 +22,16 @@ export default function Perfil() {
     <View style={{ flex: 1 }}>
       <ScrollView>
         <View style={styles.container}>
-          <View style={styles.container2}></View>
+          <View style={styles.fotoperfilG}></View>
         </View>
 
-        <Text style={{ marginTop: 60, marginLeft: 40, fontSize: 30 }}>
+        <Text style={{ marginTop: 400, marginLeft: 40, fontSize: 30 }}>
           Seu nome
         </Text>
 
         <Text
           style={{
-            marginTop: 60,
+            marginTop: 100,
             marginLeft: 30,
             marginRight: 30,
             fontSize: 20,
@@ -41,19 +43,42 @@ export default function Perfil() {
         >
           Sua descrição
         </Text>
-
         <Text
           style={{
-            marginTop: 60,
-            fontSize: 20,
-            height: 300,
-            borderWidth: 3,
-            borderColor: "black",
-            padding: 20,
+            fontSize: 24,
+            borderColor: "grey",
+            borderTopWidth: 1.5,
+            marginTop: 50,
+            padding: 10,
           }}
         >
-          Sua descrição2
+          Seus Feedbacks
         </Text>
+        <View style={{ marginTop: 30, flexDirection: "row" }}>
+          <View style={styles.fotoperfilP}></View>
+          <View style={{ padding: 10 }}>
+            <Text style={{ fontSize: 14 }}>Lugar</Text>
+            <Rating
+              name="ratingo"
+              defaultValue={5}
+              startingValue={7}
+              type="custom"
+              ratingColor="orange"
+              ratingBackgroundColor="darkgrey"
+              ratingCount={10}
+              imageSize={20}
+            />
+            <Text style={{ fontSize: 14, width: 200 }}>
+              Contrary to popular belief, Lorem Ipsum is not simply random text.
+              It has roots in a piece of classical Latin literature from 45 BC,
+              making it over 2000 years old. Richard McClintock, a Latin
+              professor at Hampden-Sydney College in Virginia, looked up one of
+              the more obscure Latin words, consectetur, from a Lorem Ipsum
+              passage, and going through the cites of the word in classical
+              literature, discovered the undoubtable source.
+            </Text>
+          </View>
+        </View>
       </ScrollView>
     </View>
   );
@@ -65,17 +90,29 @@ const styles = StyleSheet.create({
     backgroundColor: "orange",
     height: 300,
     width: "100%",
+    position: "absolute",
   },
-  container2: {
+  fotoperfilG: {
     borderTopLeftRadius: 100,
     borderTopRightRadius: 100,
     borderBottomLeftRadius: 100,
     borderBottomRightRadius: 100,
     backgroundColor: "#51C2E8",
     marginLeft: "5%",
-    marginTop: 200,
+    marginTop: 220,
     width: 150,
     height: 150,
+  },
+  fotoperfilP: {
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 100,
+    borderBottomLeftRadius: 100,
+    borderBottomRightRadius: 100,
+    backgroundColor: "#51C2E8",
+    marginLeft: "5%",
+    marginTop: 10,
+    width: 75,
+    height: 75,
   },
   titulo: {
     fontSize: 30,
