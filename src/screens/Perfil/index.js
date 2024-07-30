@@ -18,6 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function Perfil() {
   const navigation = useNavigation();
+  const ratingo = 3.5;
   return (
     <View style={{ flex: 1 }}>
       <ScrollView>
