@@ -8,6 +8,7 @@ import Registro from "../screens/Registro";
 import Login from "../screens/Login";
 import Prob from "../screens/Prob";
 import Perfil from "../screens/Perfil";
+import Configuracoes from "../screens/Configacoes";
 
 export default function Routes() {
   return (
@@ -32,6 +33,11 @@ export default function Routes() {
           name="Perfil"
           component={Perfil}
           options={{ headerTitle: "Tela do Perfil" }}
+        />
+        <Stack.Screen
+          name="Configuracoes"
+          component={Configuracoes}
+          options={{ headerTitle: "Tela do Configuração" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

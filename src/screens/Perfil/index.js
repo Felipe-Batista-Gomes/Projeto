@@ -21,8 +21,28 @@ export default function Perfil() {
   const ratingo = 3.5;
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView>
+      <ScrollView horizontal={false}>
         <View style={styles.container}>
+          <View
+            style={{
+              flex: 1,
+              marginTop: 55,
+              marginRight: 20,
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+            }}
+          >
+            <Pressable
+              onPress={() => {
+                navigation.navigate("Configuracoes");
+              }}
+            >
+              <Image
+                source={require("E:/my-app/assets/config.png")}
+                style={styles.config}
+              />
+            </Pressable>
+          </View>
           <View style={styles.fotoperfilG}></View>
         </View>
 
@@ -50,6 +70,7 @@ export default function Perfil() {
             borderColor: "grey",
             borderTopWidth: 1.5,
             marginTop: 50,
+            marginLeft: 15,
             padding: 10,
           }}
         >
@@ -100,7 +121,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 100,
     backgroundColor: "#51C2E8",
     marginLeft: "5%",
-    marginTop: 220,
+    marginTop: 190,
     width: 150,
     height: 150,
   },
@@ -145,5 +166,9 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     marginBottom: 20,
+  },
+  config: {
+    width: 50,
+    height: 50,
   },
 });

@@ -10,9 +10,15 @@ import {
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
+//import { handleRegister } from "../../../models/register";
 
 export default function Registro() {
   const navigation = useNavigation();
+  const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <View style={styles.container}>
       <View style={styles.container2}>
