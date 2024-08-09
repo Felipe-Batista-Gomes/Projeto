@@ -17,7 +17,7 @@ export default function Login() {
     <View style={styles.container}>
       <View style={styles.container2}>
         <Image
-          source={require("E:/my-app/assets/logo.png")}
+          source={require("../../../assets/logo.png")}
           style={styles.logo}
         />
         <Text style={styles.titulo}>Login</Text>
@@ -44,7 +44,12 @@ export default function Login() {
           Esqueceu sua senha?
         </Pressable>
 
-        <Pressable style={styles.botao}>
+        <Pressable
+          onPress={() => {
+            navigation.navigate("Principal");
+          }}
+          style={styles.botao}
+        >
           <Text style={styles.buttxt}>Entrar</Text>
         </Pressable>
       </View>

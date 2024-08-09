@@ -9,6 +9,7 @@ import Login from "../screens/Login";
 import Prob from "../screens/Prob";
 import Perfil from "../screens/Perfil";
 import Configuracoes from "../screens/Configacoes";
+import Principal from "../screens/Principal";
 
 export default function Routes() {
   return (
@@ -38,6 +39,11 @@ export default function Routes() {
           name="Configuracoes"
           component={Configuracoes}
           options={{ headerTitle: "Tela do Configuração" }}
+        />
+        <Stack.Screen
+          name="Principal"
+          component={Principal}
+          options={{ headerTitle: "Tela Principal" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
