@@ -32,7 +32,7 @@ export default function Principal() {
           }}
         >
           <Image
-            source={require("E:/my-app/assets/config.png")}
+            source={require("../../../assets/config.png")}
             style={styles.config}
           />
         </Pressable>

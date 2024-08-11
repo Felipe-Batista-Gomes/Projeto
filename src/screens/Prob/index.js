@@ -7,6 +7,7 @@ import {
   Text,
   TextInput,
   Pressable,
+  ScrollView
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
@@ -15,9 +16,10 @@ export default function Prob() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
+      <ScrollView horizontal={false}>
       <View style={styles.container2}>
         <Image
-          source={require("E:/my-app/assets/logo.png")}
+          source={require("../../../assets/logo.png")}
           style={styles.logo}
         />
         <Text style={styles.titulo}>Não consegue logar?</Text>
@@ -63,6 +65,7 @@ export default function Prob() {
           </Text>
         </Pressable>
       </View>
+      </ScrollView>
     </View>
   );
 }
