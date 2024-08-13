@@ -10,6 +10,7 @@ import {
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
+import { ScrollView } from "react-native-web";
 //import { handleRegister } from "../../../models/register";
 
 export default function Registro() {
@@ -21,9 +22,10 @@ export default function Registro() {
 
   return (
     <View style={styles.container}>
+      <ScrollView horizontal={false}>
       <View style={styles.container2}>
         <Image
-          source={require("E:/my-app/assets/logo.png")}
+          source={require("../../../assets/logo.png")}
           style={styles.logo}
         />
         <Text style={styles.titulo}>Registro</Text>
@@ -74,6 +76,7 @@ export default function Registro() {
           </Text>
         </Pressable>
       </View>
+      </ScrollView>
     </View>
   );
 }

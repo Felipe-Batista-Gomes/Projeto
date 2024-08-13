@@ -15,9 +15,24 @@ export default function Principal() {
   const navigation = useNavigation();
   return (
     <View style={{ flex: 1 }}>
-      <View style={styles.bolinha1}></View>
-      <View style={styles.bolinha2}></View>
-      <View style={styles.bolinha3}></View>
+      <View style={styles.bolinha1}>
+        <Image
+          style={styles.loigo}
+          source={require("../../../assets/pesquisa.png")}
+        />
+      </View>
+      <View style={styles.bolinha2}>
+        <Image
+          style={styles.loigo}
+          source={require("../../../assets/usuario.png")}
+        />
+      </View>
+      <View style={styles.bolinha3}>
+        <Image
+          style={styles.loigo}
+          source={require("../../../assets/download.png")}
+        />
+      </View>
       <View
         style={{
           marginTop: 20,
@@ -32,7 +47,7 @@ export default function Principal() {
           }}
         >
           <Image
-            source={require("E:/my-app/assets/config.png")}
+            source={require("../../../assets/config.png")}
             style={styles.config}
           />
         </Pressable>
@@ -43,6 +58,11 @@ export default function Principal() {
 }
 
 const styles = StyleSheet.create({
+  loigo: {
+    alignItems: "center",
+    width: "60%",
+    height: "60%",
+  },
   config: {
     width: 30,
     height: 30,
@@ -59,6 +79,9 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     position: "absolute",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   bolinha2: {
     borderTopLeftRadius: 100,
@@ -71,6 +94,9 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     position: "absolute",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   bolinha3: {
     borderTopLeftRadius: 100,
@@ -83,5 +109,8 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     position: "absolute",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

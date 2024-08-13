@@ -38,7 +38,7 @@ export default function Perfil() {
               }}
             >
               <Image
-                source={require("E:/my-app/assets/config.png")}
+                source={require("../../../assets/config.png")}
                 style={styles.config}
               />
             </Pressable>
