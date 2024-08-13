@@ -13,6 +13,10 @@ import RNPickerSelect from "react-native-picker-select";
 
 import CheckBox from "react-native-check-box";
 
+import RNPickerSelect from "react-native-picker-select";
+
+import CheckBox from "react-native-check-box";
+
 import { useNavigation } from "@react-navigation/native";
 
 export default function Configacoes() {
@@ -33,7 +37,7 @@ export default function Configacoes() {
     }
   };
   return (
-    <View style={styles.container}>
+    <View>
       <View style={styles.titulo}>
         <Text style={{ fontSize: 50, color: "white" }}>Configurações</Text>
       </View>
