@@ -7,6 +7,7 @@ import {
   Text,
   TextInput,
   Pressable,
+  div
 } from "react-native";
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -52,7 +53,35 @@ export default function Principal() {
           style={styles.config}
         />
       </Pressable>
-      <View style={styles.fotoperfilG}></View>
+
+      <div style={{ display: 'block', width: "90%", padding: 30, marginTop: 150 }}>
+      <h4>React-Bootstrap Carousel Component</h4>
+      <Carousel fade>
+        <Carousel.Item interval={1500}>
+          <img
+            className="d-block w-100"
+            src="../../../assets/paisagem.jpg"
+            alt="paisagem"
+          />
+          <Carousel.Caption>
+            <h3>Paisagem</h3>
+            <p>Apenas uma paisagem aleatória</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={500}>
+          <img
+            className="d-block w-100"
+            style={styles.carrossel}
+            src="../../../assets/icon.png"
+            alt="usuario"
+          />
+          <Carousel.Caption>
+            <h3>Ícone de usuário</h3>
+            <p>O ícone de usuário usado no app</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+    </div>
     </View>
   );
 }
@@ -63,8 +92,12 @@ const styles = StyleSheet.create({
     width: "60%",
     height: "60%",
   },
+  carrossel: {
+    width: "90%",
+    height: "100%",
+  },
   config: {
-    marginLeft: "80%",
+    marginLeft: "85%",
     marginTop: 10,
     width: 50,
     height: 50,
