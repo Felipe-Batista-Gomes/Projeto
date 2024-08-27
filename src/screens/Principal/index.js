@@ -9,49 +9,49 @@ import {
   Pressable,
 } from "react-native";
 
+import 'bootstrap/dist/css/bootstrap.css';
+import Carousel from 'react-bootstrap/Carousel';
+
 import { useNavigation } from "@react-navigation/native";
 
 export default function Principal() {
   const navigation = useNavigation();
   return (
     <View style={{ flex: 1 }}>
-      <View style={styles.bolinha1}>
+      <Pressable style={styles.bolinha1}>
         <Image
           style={styles.loigo}
           source={require("../../../assets/pesquisa.png")}
         />
-      </View>
-      <View style={styles.bolinha2}>
+      </Pressable>
+
+      <Pressable style={styles.bolinha2}
+        onPress={() => {
+          navigation.navigate("Perfil")
+        }}>
         <Image
           style={styles.loigo}
           source={require("../../../assets/usuario.png")}
         />
-      </View>
-      <View style={styles.bolinha3}>
+      </Pressable>
+
+      <Pressable style={styles.bolinha3}>
         <Image
           style={styles.loigo}
           source={require("../../../assets/download.png")}
         />
-      </View>
-      <View
-        style={{
-          marginTop: 20,
-          marginRight: 20,
-          justifyContent: "flex-end",
-          alignItems: "flex-end",
-        }}
-      >
-        <Pressable
-          onPress={() => {
-            navigation.navigate("Configuracoes");
+      </Pressable>
+
+      <Pressable
+        onPress={() => {
+          navigation.navigate("Configuracoes");
           }}
-        >
-          <Image
-            source={require("../../../assets/config.png")}
-            style={styles.config}
-          />
-        </Pressable>
-      </View>
+      >
+        <Image
+          source={require("../../../assets/config.png")}
+          style={styles.config}
+        />
+      </Pressable>
       <View style={styles.fotoperfilG}></View>
     </View>
   );
@@ -64,9 +64,14 @@ const styles = StyleSheet.create({
     height: "60%",
   },
   config: {
-    width: 30,
-    height: 30,
-    marginBottom: "50%",
+    marginLeft: "80%",
+    marginTop: 10,
+    width: 50,
+    height: 50,
+    position: "absolute",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   bolinha1: {
     borderTopLeftRadius: 100,
