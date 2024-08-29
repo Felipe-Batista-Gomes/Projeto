@@ -7,11 +7,12 @@ import {
   Text,
   TextInput,
   Pressable,
-  div
+  div,
+  ScrollView,
 } from "react-native";
 
-import 'bootstrap/dist/css/bootstrap.css';
-import Carousel from 'react-bootstrap/Carousel';
+import "bootstrap/dist/css/bootstrap.css";
+import Carousel from "react-bootstrap/Carousel";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -19,69 +20,81 @@ export default function Principal() {
   const navigation = useNavigation();
   return (
     <View style={{ flex: 1 }}>
-      <Pressable style={styles.bolinha1}>
-        <Image
-          style={styles.loigo}
-          source={require("../../../assets/pesquisa.png")}
-        />
-      </Pressable>
+      <ScrollView horizontal={false}>
+        <Pressable style={styles.bolinha1}>
+          <Image
+            style={styles.loigo}
+            source={require("../../../assets/pesquisa.png")}
+          />
+        </Pressable>
 
-      <Pressable style={styles.bolinha2}
-        onPress={() => {
-          navigation.navigate("Perfil")
-        }}>
-        <Image
-          style={styles.loigo}
-          source={require("../../../assets/usuario.png")}
-        />
-      </Pressable>
-
-      <Pressable style={styles.bolinha3}>
-        <Image
-          style={styles.loigo}
-          source={require("../../../assets/download.png")}
-        />
-      </Pressable>
-
-      <Pressable
-        onPress={() => {
-          navigation.navigate("Configuracoes");
+        <Pressable
+          style={styles.bolinha2}
+          onPress={() => {
+            navigation.navigate("Perfil");
           }}
-      >
-        <Image
-          source={require("../../../assets/config.png")}
-          style={styles.config}
-        />
-      </Pressable>
+        >
+          <Image
+            style={styles.loigo}
+            source={require("../../../assets/usuario.png")}
+          />
+        </Pressable>
 
-      <div style={{ display: 'block', width: "90%", padding: 30, marginTop: 150 }}>
-      <h4>React-Bootstrap Carousel Component</h4>
-      <Carousel fade>
-        <Carousel.Item interval={1500}>
-          <img
-            className="d-block w-100"
-            src="../../../assets/paisagem.jpg"
-            alt="paisagem"
+        <Pressable style={styles.bolinha3}>
+          <Image
+            style={styles.loigo}
+            source={require("../../../assets/download.png")}
           />
-          <Carousel.Caption>
-            <h3>Paisagem</h3>
-            <p>Apenas uma paisagem aleatória</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item interval={500}>
-          <img
-            className="d-block w-100"
-            style={styles.carrossel}
-            src="../../../assets/icon.png"
-            alt="usuario"
+        </Pressable>
+
+        <Pressable
+          onPress={() => {
+            navigation.navigate("Configuracoes");
+          }}
+        >
+          <Image
+            source={require("../../../assets/config.png")}
+            style={styles.config}
           />
-          <Carousel.Caption>
-            <h3>Ícone de usuário</h3>
-            <p>O ícone de usuário usado no app</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
-    </div>
+        </Pressable>
+
+        <div
+          style={{
+            display: "block",
+            width: "80%",
+            height: "50%",
+            padding: 30,
+            marginTop: 110,
+          }}
+        >
+          <Carousel>
+            <Carousel.Item interval={1500}>
+              <img
+                className="d-block w-100"
+                style={styles.carrossel}
+                src="../../../assets/paisagem.jpg"
+                alt="download"
+              />
+              <Carousel.Caption>
+                <h3 style={{color: "red", fontSize: 12}}>Primeira paisagem</h3>
+                <p style={{color: "red", fontSize: 10}}>Paisagem para testes</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item interval={1500}>
+              <img
+                className="d-block w-100"
+                style={styles.carrossel}
+                src="../../../assets/paisagem2.jpg"
+                alt="usuario"
+              />
+              <Carousel.Caption>
+                <h3 style={{color: "red", fontSize: 12}}>Segunda paisagem</h3>
+                <p style={{color: "red", fontSize: 10}}>Paisagem para testes</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+        </div>
+      </ScrollView>
     </View>
   );
 }
@@ -92,9 +105,10 @@ const styles = StyleSheet.create({
     width: "60%",
     height: "60%",
   },
-  carrossel: {
-    width: "90%",
-    height: "100%",
+  carrossel:{
+    width: 250,
+    height: 200,
+    objectFit: "cover",
   },
   config: {
     marginLeft: "85%",
