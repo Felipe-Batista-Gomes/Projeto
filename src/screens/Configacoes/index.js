@@ -9,13 +9,9 @@ import {
   Pressable,
 } from "react-native";
 
-import RNPickerSelect from "react-native-picker-select";
-
 import CheckBox from "react-native-check-box";
 
 import RNPickerSelect from "react-native-picker-select";
-
-import CheckBox from "react-native-check-box";
 
 import { useNavigation } from "@react-navigation/native";
 
