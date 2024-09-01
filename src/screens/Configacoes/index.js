@@ -9,6 +9,8 @@ import {
   Pressable,
 } from "react-native";
 
+import {Container, TextoG, TextoP} from '../Principal/styles';
+
 import CheckBox from "react-native-check-box";
 
 import RNPickerSelect from "react-native-picker-select";
@@ -33,7 +35,7 @@ export default function Configacoes() {
     }
   };
   return (
-    <View>
+    <Container>
       <View style={styles.titulo}>
         <Text style={{ fontSize: 50, color: "white" }}>Configurações</Text>
       </View>
@@ -91,7 +93,7 @@ export default function Configacoes() {
           />
         </View>
       </View>
-    </View>
+    </Container>
   );
 }
 

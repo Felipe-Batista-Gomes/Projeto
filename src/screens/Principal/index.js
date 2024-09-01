@@ -105,7 +105,7 @@ export default function Principal() {
           </Carousel>
         </div>
 
-        <TextoP>Principais pontos turísticos</TextoP>
+        <Text style={styles.title}>Principais pontos turísticos</Text>
 
         <View
           style={{
@@ -123,7 +123,7 @@ export default function Principal() {
           </View>
           <View style={styles.texttour}>
             <TextoP>Principais pontos turísticos</TextoP>
-            <TextoP style={styles.desc}>Desc</TextoP>
+            <TextoP>Desc</TextoP>
           </View>
         </View>
 
@@ -143,7 +143,7 @@ export default function Principal() {
           </View>
           <View style={styles.texttour}>
             <TextoP>Principais pontos turísticos</TextoP>
-            <TextoP style={styles.desc}>Desc</TextoP>
+            <TextoP>Desc</TextoP>
           </View>
         </View>
 

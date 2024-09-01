@@ -1,7 +1,13 @@
 import Routes from "./src/routes/routes";
 
-const App = () => {
-  return <Routes />;
+import {ThemeProvider} from 'styled-components/native';
+
+ const App = () => {
+  return (
+    <ThemeProvider theme={{background: '#FFF'}}>
+      <Routes />
+    </ThemeProvider>
+  );
 };
 
 export default App;
