@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -7,6 +7,7 @@ import {
   Text,
   TextInput,
   Pressable,
+  Switch,
 } from "react-native";
 
 import {Container, TextoG, TextoP} from '../Principal/styles';
@@ -16,6 +17,13 @@ import CheckBox from "react-native-check-box";
 import RNPickerSelect from "react-native-picker-select";
 
 import { useNavigation } from "@react-navigation/native";
+import { ThemeContext, ThemeType } from "../../theme/Theme";
+
+const {theme, toggleTheme} = useContext(ThemeContext);
+
+const isDarkMode = theme == ThemeType.dark;
+
+console.log(isDarkMode);
 
 export default function Configacoes() {
   const navigation = useNavigation();
@@ -46,12 +54,13 @@ export default function Configacoes() {
           </Text>
         </View>
         <View style={{ width: "50%" }}>
+          <Switch value={isDarkMode} onChange={toggleTheme}></Switch>
           <CheckBox
             isChecked={acess}
             onClick={handleChangeAcess}
             uncheckedCheckBoxColor="grey"
             checkedCheckBoxColor="#54B8E5"
-            leftText="Tema Claro"
+            leftTextoP="Tema Claro"
             leftTextStyle={{ marginLeft: 30, fontSize: 20 }}
           />
           <CheckBox

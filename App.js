@@ -1,10 +1,11 @@
 import Routes from "./src/routes/routes";
 
-import {ThemeProvider} from 'styled-components/native';
+import { ThemeProvider } from "./src/theme/Theme";
+
 
  const App = () => {
   return (
-    <ThemeProvider theme={{background: '#FFF'}}>
+    <ThemeProvider>
       <Routes />
     </ThemeProvider>
   );
