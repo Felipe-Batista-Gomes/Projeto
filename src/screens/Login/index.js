@@ -7,6 +7,7 @@ import {
   Text,
   TextInput,
   Pressable,
+  ScrollView
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
@@ -15,6 +16,7 @@ export default function Login() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
+      <ScrollView horizontal={false}>
       <View style={styles.container2}>
         <Image
           source={require("../../../assets/logo.png")}
@@ -95,6 +97,7 @@ export default function Login() {
           <Text style={{ color: "red" }}>Perfil</Text>
         </Pressable>
       </View>
+      </ScrollView>
     </View>
   );
 }
