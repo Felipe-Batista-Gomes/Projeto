@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -10,22 +10,13 @@ import {
   Switch,
 } from "react-native";
 
-import {Container, TextoG, TextoP} from '../Principal/styles';
-
-import CheckBox from "react-native-check-box";
+import Checkbox from "react-native-check-box";
 
 import RNPickerSelect from "react-native-picker-select";
 
 import { useNavigation } from "@react-navigation/native";
-import { ThemeContext, ThemeType } from "../../theme/Theme";
 
-const {theme, toggleTheme} = useContext(ThemeContext);
-
-const isDarkMode = theme == ThemeType.dark;
-
-console.log(isDarkMode);
-
-export default function Configacoes() {
+export default function Configuracoes() {
   const navigation = useNavigation();
   const [acess, setAcess] = useState(true);
   const [acess2, setAcess2] = useState(false);
@@ -43,27 +34,26 @@ export default function Configacoes() {
     }
   };
   return (
-    <Container>
+    <View style={styles.container}>
       <View style={styles.titulo}>
         <Text style={{ fontSize: 50, color: "white" }}>Configurações</Text>
       </View>
       <View style={{ borderBottomWidth: 1, borderBottomColor: "grey" }}>
         <View style={styles.title}>
-          <Text style={{ marginTop: 160, fontSize: 40, color: "grey" }}>
+          <Text style={{ marginTop: 160, fontSize: 40, color: "grey"}}>
             Acessibilidade
           </Text>
         </View>
-        <View style={{ width: "50%" }}>
-          <Switch value={isDarkMode} onChange={toggleTheme}></Switch>
-          <CheckBox
+        <View style={{width: "50%", marginTop: 15, marginBottom: 15}}>
+          <Checkbox
             isChecked={acess}
             onClick={handleChangeAcess}
             uncheckedCheckBoxColor="grey"
             checkedCheckBoxColor="#54B8E5"
-            leftTextoP="Tema Claro"
+            leftText="Tema Claro"
             leftTextStyle={{ marginLeft: 30, fontSize: 20 }}
           />
-          <CheckBox
+          <Checkbox
             isChecked={acess2}
             onClick={handleChangeAcess2}
             uncheckedCheckBoxColor="grey"
@@ -75,7 +65,7 @@ export default function Configacoes() {
       </View>
       <View>
         <View style={styles.title}>
-          <Text style={{ fontSize: 40, color: "grey" }}>Idiomas</Text>
+          <Text style={{fontSize: 40, color: "grey"}}>Idiomas</Text>
         </View>
         <View
           style={{
@@ -102,7 +92,7 @@ export default function Configacoes() {
           />
         </View>
       </View>
-    </Container>
+    </View>
   );
 }
 
