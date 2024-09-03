@@ -62,6 +62,7 @@ export default function Principal() {
           style={{
             display: "block",
             width: "100%",
+            width: "100%",
             height: "50%",
             padding: 30,
             marginTop: 110,
@@ -207,6 +208,9 @@ export default function Principal() {
 }
 
 const styles = StyleSheet.create({
+  ponto: {
+    fontSize: 15,
+  },
   ponto: {
     fontSize: 15,
   },
