@@ -10,6 +10,7 @@ import Prob from "../screens/Prob";
 import Perfil from "../screens/Perfil";
 import Configuracoes from "../screens/Configacoes";
 import Principal from "../screens/Principal";
+import Local from "../screens/Local";
 
 export default function Routes() {
   return (
@@ -44,6 +45,11 @@ export default function Routes() {
           name="Principal"
           component={Principal}
           options={{ headerTitle: "Tela Principal" }}
+        />
+        <Stack.Screen
+          name="Local"
+          component={Local}
+          options={{ headerTitle: "Tela de Estabelecimento" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

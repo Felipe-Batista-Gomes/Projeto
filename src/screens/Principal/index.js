@@ -70,12 +70,16 @@ export default function Principal() {
         >
           <Carousel>
             <Carousel.Item interval={1500}>
-              <img
-                className="d-block w-100"
-                style={styles.carrossel}
-                src="../../../assets/paisagem.jpg"
-                alt="Paisagem"
-              />
+              <Pressable onPress={() => {
+                navigation.navigate("Local")
+              }}>
+                <img
+                  className="d-block w-100"
+                  style={styles.carrossel}
+                  src="../../../assets/paisagem.jpg"
+                  alt="Paisagem"
+                />
+              </Pressable>
               <Carousel.Caption>
                 <h3 style={{ color: "white", fontSize: 20, textAlign: "left" }}>
                   Primeira paisagem

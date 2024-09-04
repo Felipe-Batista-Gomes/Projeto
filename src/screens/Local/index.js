@@ -16,70 +16,62 @@ import { Rating } from "react-native-ratings";
 
 import { useNavigation } from "@react-navigation/native";
 
-export default function Perfil() {
+export default function Local() {
   const navigation = useNavigation();
   const ratingo = 3.5;
   return (
     <View style={{ flex: 1 }}>
       <ScrollView horizontal={false}>
         <View style={styles.container}>
-          <View
-            style={{
-              flex: 1,
-              marginTop: 55,
-              marginRight: 20,
-              justifyContent: "flex-end",
-              alignItems: "flex-end",
-            }}
-          >
-            <Pressable
-              onPress={() => {
-                navigation.navigate("Configuracoes");
-              }}
-            >
-              <Image
-                source={require("../../../assets/config.png")}
-                style={styles.config}
-              />
-            </Pressable>
+          <View style={styles.container2}>
+            <View style={styles.container31}></View>
+            <View style={styles.container32}></View>
           </View>
-          <View style={styles.fotoperfilG}></View>
         </View>
 
-        <Text style={{ marginTop: 400, marginLeft: 40, fontSize: 30 }}>
-          Seu nome
+        <Text style={{ marginTop: 340, marginLeft: 40, fontSize: 30 }}>
+          Nome do lugar
         </Text>
 
         <Text
           style={{
-            marginTop: 100,
+            marginTop: 60,
             marginLeft: 30,
             marginRight: 30,
             fontSize: 20,
-            height: 300,
+            height: 220,
             borderWidth: 3,
             borderColor: "black",
             padding: 10,
           }}
         >
-          Sua descrição
+          Descrição do local
         </Text>
-        <Text
-          style={{
-            fontSize: 24,
-            borderColor: "grey",
-            borderTopWidth: 1.5,
-            marginTop: 50,
-            marginLeft: 15,
-            padding: 10,
-          }}
-        >
-          Seus Feedbacks
-        </Text>
+
+        <View style={{ marginTop: 30, flexDirection: "row", borderColor: "lightgrey", borderTopWidth: 1.5, }}>
+          <View style={styles.fotoperfilU}></View>
+          <View style={{ padding: 10, width: "100%", justifyContent: "flex-start", alignItems: "flex-start"  }}>
+            <Text
+              style={{
+                marginLeft: 10,
+                marginRight: 30,
+                fontSize: 15,
+                width: "70%",
+                height: 80,
+                borderWidth: 3,
+                borderColor: "black",
+                padding: 10,
+              }}
+            >
+            Deixe seu feedback
+            </Text>
+          </View>
+        </View>
+
         <View style={{ marginTop: 30, flexDirection: "row" }}>
           <View style={styles.fotoperfilP}></View>
-          <View style={{ padding: 10, justifyContent: "flex-start", alignItems: "flex-start" }}>
-            <Text style={{ fontSize: 14 }}>Lugar</Text>
+          <View style={{ padding: 10, justifyContent: "flex-start", alignItems: "flex-start"  }}>
+            <Text style={{ fontSize: 20 }}>Nome do Usuário</Text>
             <Rating
               name="ratingo"
               defaultValue={5}
@@ -90,14 +82,8 @@ export default function Perfil() {
               ratingCount={5}
               imageSize={20}
             />
-            <Text style={{ fontSize: 14, width: 200 }}>
-              Contrary to popular belief, Lorem Ipsum is not simply random text.
-              It has roots in a piece of classical Latin literature from 45 BC,
-              making it over 2000 years old. Richard McClintock, a Latin
-              professor at Hampden-Sydney College in Virginia, looked up one of
-              the more obscure Latin words, consectetur, from a Lorem Ipsum
-              passage, and going through the cites of the word in classical
-              literature, discovered the undoubtable source.
+            <Text style={{ fontSize: 15, width: 200 }}>
+                Feedback
             </Text>
           </View>
         </View>
@@ -109,21 +95,35 @@ export default function Perfil() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "orange",
+    backgroundColor: "#326E72",
     height: 300,
     width: "100%",
     position: "absolute",
+    justifyContent: "center",
+    alignItems: "center"
   },
-  fotoperfilG: {
-    borderTopLeftRadius: 100,
-    borderTopRightRadius: 100,
-    borderBottomLeftRadius: 100,
-    borderBottomRightRadius: 100,
-    backgroundColor: "#51C2E8",
-    marginLeft: "5%",
-    marginTop: 190,
-    width: 150,
-    height: 150,
+  container2: {
+    backgroundColor: "#1CBFD6",
+    marginTop: 100,
+    height: 200,
+    width: "70%",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  container31: {
+    backgroundColor: "#326E72",
+    height: "80%",
+    width: "30%",
+    marginTop: 40,
+    marginRight: "5"
+  },
+  container32: {
+    backgroundColor: "#326E72",
+    height: "80%",
+    width: "30%",
+    marginTop: 40,
+    marginLeft: 5
   },
   fotoperfilP: {
     borderTopLeftRadius: 100,
@@ -132,6 +132,17 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 100,
     backgroundColor: "#51C2E8",
     marginLeft: "5%",
+    marginTop: 10,
+    width: 75,
+    height: 75,
+  },
+  fotoperfilU: {
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 100,
+    borderBottomLeftRadius: 100,
+    borderBottomRightRadius: 100,
+    backgroundColor: "#51C2E8",
+    marginLeft: "2%",
     marginTop: 10,
     width: 75,
     height: 75,
