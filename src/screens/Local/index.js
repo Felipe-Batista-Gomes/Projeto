@@ -24,8 +24,12 @@ export default function Local() {
       <ScrollView horizontal={false}>
         <View style={styles.container}>
           <View style={styles.container2}>
-            <View style={styles.container31}></View>
-            <View style={styles.container32}></View>
+            <View style={styles.container31}>
+              <View style={styles.container41}></View>
+            </View>
+            <View style={styles.container32}>
+              <View style={styles.container42}></View>
+            </View>
           </View>
         </View>
 
@@ -35,14 +39,13 @@ export default function Local() {
 
         <Text
           style={{
-            marginTop: 60,
-            marginLeft: 30,
+            marginTop: 10,
+            marginLeft: 50,
             marginRight: 30,
             fontSize: 20,
-            height: 220,
-            borderWidth: 3,
-            borderColor: "black",
+            height: 100,
             padding: 10,
+            color: "#393D40"
           }}
         >
           Descrição do local
@@ -74,6 +77,7 @@ export default function Local() {
             <Text style={{ fontSize: 20 }}>Nome do Usuário</Text>
             <Rating
               name="ratingo"
+              backgroundColor="red"
               defaultValue={5}
               startingValue={7}
               type="custom"
@@ -116,7 +120,9 @@ const styles = StyleSheet.create({
     height: "80%",
     width: "30%",
     marginTop: 40,
-    marginRight: "5"
+    marginRight: "5",
+    justifyContent: "flex-end",
+    alignItems: "flex-end"
   },
   container32: {
     backgroundColor: "#326E72",
@@ -124,6 +130,20 @@ const styles = StyleSheet.create({
     width: "30%",
     marginTop: 40,
     marginLeft: 5
+  },
+  container41: {
+    backgroundColor: "#1CBFD6",
+    height: 10,
+    width: 10,
+    marginBottom: 80,
+    borderRadius: 100,
+  },
+  container42: {
+    backgroundColor: "#1CBFD6",
+    height: 10,
+    width: 10,
+    marginTop: 70,
+    borderRadius: 100
   },
   fotoperfilP: {
     borderTopLeftRadius: 100,

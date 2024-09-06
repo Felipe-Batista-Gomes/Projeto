@@ -119,54 +119,48 @@ export default function Principal() {
         >
           <View
             style={{
-              marginTop: 10,
-              height: 250,
+              height: 150,
               flexDirection: "row",
-              padding: 25,
+              padding: 20,
             }}
           >
             <View style={styles.imgtour}>
               <img
                 src="../../../assets/complexo.jpeg"
-                style={{ height: "60%", borderRadius: 4 }}
+                style={{ height: "90%", borderRadius: 4 }}
               />
             </View>
             <View style={styles.texttour}>
               <Text style={styles.ponto}>Complexo Esportivo da Rocinha</Text>
               <Text style={styles.desc}>
-                O Complexo Esportivo da Rocinha, inaugurado em 2010, é um espaço
-                público para esporte e lazer, com quadras poliesportivas, tatame
-                para artes marciais, piscina, academia e pista de atletismo. Ele
-                promove inclusão social e cultural, oferecendo atividades e
-                programas principalmente para os jovens da comunidade,
-                tornando-se um local muito frequentado.
+                O Complexo Esportivo da Rocinha é um espaço
+                público para esporte e lazer, com áreas destinadas à diversas atividades esportivas.
+                Promove inclusão social e cultural, oferecendo atividades e
+                programas principalmente para os jovens,
+                sendo um local muito frequentado.
               </Text>
             </View>
           </View>
 
           <View
             style={{
-              marginTop: 10,
-              height: 250,
+              height: 150,
               flexDirection: "row",
-              padding: 25,
+              padding: 20,
             }}
           >
             <View style={styles.imgtour}>
               <img
                 src="../../../assets/mirante.jpg"
-                style={{ height: "50%", borderRadius: 4 }}
+                style={{ height: "90%", borderRadius: 4 }}
               />
             </View>
             <View style={styles.texttour}>
               <Text style={styles.ponto}>Mirante da Rocinha</Text>
               <Text style={styles.desc}>
-                O Mirante da Rocinha é um ponto turístico localizado na Rocinha,
-                Rio de Janeiro. De lá, é possível ter uma vista panorâmica
-                impressionante da cidade, incluindo o mar, as montanhas e partes
-                das zonas Sul e Oeste. O local oferece uma perspectiva única da
-                vida na favela, contrastando a beleza natural comm o cenário
-                urbano. Além de ser um ponto de observação popular para
+                O Mirante da Rocinha é um ponto turístico localizado na Rocinha.
+                De lá, é possível ter uma vista
+                impressionante de boa parte da cidade. Além de ser um ponto de observação popular para
                 turistas, o mirante também é utilizado pelos moradores como um
                 espaço de convivência e lazer. Há ainda uma variedade de opçôes
                 gastronômicas populares, com pratos e drinks típicos do Rio.
@@ -176,16 +170,15 @@ export default function Principal() {
 
           <View
             style={{
-              marginTop: 10,
-              height: 250,
+              height: 150,
               flexDirection: "row",
-              padding: 25,
+              padding: 20,
             }}
           >
             <View style={styles.imgtour}>
               <img
                 src="../../../assets/nordestino.png"
-                style={{ height: "50%", borderRadius: 4 }}
+                style={{ height: "90%", borderRadius: 4 }}
               />
             </View>
             <View style={styles.texttour}>
@@ -194,10 +187,9 @@ export default function Principal() {
               </Text>
               <Text style={styles.desc}>
                 O Restaurante Nordestino da Rocinha é um estabelecimento situado
-                na comunidade da Rocinha, especializado na culinária típica do
+                na Rocinha, especializado na culinária típica do
                 Nordeste do Brasil. O restauranto oferece uma variedade de
-                pratos tradicionais, como feijoada, carne de sol, baião de dois
-                e diversas opções de mariscos e frutos do mar. O ambiente é
+                pratos tradicionais nordestinos. O ambiente é
                 acolhedor e tem uma decoração que remete à cultura nordestina,
                 proporcionando uma experiência autêntica da gastronomia e da
                 cultura do Nordeste para os moradores e visitantes da
@@ -212,9 +204,6 @@ export default function Principal() {
 }
 
 const styles = StyleSheet.create({
-  ponto: {
-    fontSize: 15,
-  },
   ponto: {
     fontSize: 15,
   },
@@ -240,11 +229,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   title: {
-    fontSize: 15,
+    fontSize: 23,
     fontFamily: "sans-serif",
     borderTopWidth: 2,
     borderTopColor: "grey",
     padding: 10,
+    marginTop: 20,
+    marginLeft: 20
   },
   config: {
     marginLeft: "85%",

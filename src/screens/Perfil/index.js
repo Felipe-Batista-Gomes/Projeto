@@ -52,14 +52,13 @@ export default function Perfil() {
 
         <Text
           style={{
-            marginTop: 100,
-            marginLeft: 30,
+            marginTop: 10,
+            marginLeft: 50,
             marginRight: 30,
             fontSize: 20,
-            height: 300,
-            borderWidth: 3,
-            borderColor: "black",
+            height: 100,
             padding: 10,
+            color: "#393D40"
           }}
         >
           Sua descrição
@@ -69,7 +68,7 @@ export default function Perfil() {
             fontSize: 24,
             borderColor: "grey",
             borderTopWidth: 1.5,
-            marginTop: 50,
+            marginTop: 25,
             marginLeft: 15,
             padding: 10,
           }}
@@ -93,11 +92,7 @@ export default function Perfil() {
             <Text style={{ fontSize: 14, width: 200 }}>
               Contrary to popular belief, Lorem Ipsum is not simply random text.
               It has roots in a piece of classical Latin literature from 45 BC,
-              making it over 2000 years old. Richard McClintock, a Latin
-              professor at Hampden-Sydney College in Virginia, looked up one of
-              the more obscure Latin words, consectetur, from a Lorem Ipsum
-              passage, and going through the cites of the word in classical
-              literature, discovered the undoubtable source.
+              making it over 2000 years old.
             </Text>
           </View>
         </View>
