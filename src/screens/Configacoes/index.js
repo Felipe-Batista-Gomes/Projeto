@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import {
   StyleSheet,
   View,
-  Image,
-  Button,
   Text,
-  TextInput,
-  Pressable,
-  Switch,
 } from "react-native";
 
 import Checkbox from "react-native-check-box";
@@ -18,23 +13,28 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function Configuracoes() {
   const navigation = useNavigation();
-  const [acess, setAcess] = useState(true);
-  const [acess2, setAcess2] = useState(false);
-
-  const handleChangeAcess = () => {
-    setAcess(!acess);
-    if (acess2) {
-      setAcess2(!acess2);
+  const [lightMode, setLightMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
+  const handleLightMode = () => {
+    if(!lightMode){
+      setLightMode(!lightMode);
     }
+    if (darkMode) {
+      setDarkMode(!darkMode);
+    }
+    console.log(darkMode, lightMode);
   };
-  const handleChangeAcess2 = () => {
-    setAcess2(!acess2);
-    if (acess) {
-      setAcess(!acess);
+  const handleDarkMode = () => {
+    if(!darkMode){
+      setDarkMode(!darkMode);
     }
+    if (lightMode) {
+      setLightMode(!lightMode);
+    }
+    console.log(darkMode, lightMode);
   };
   return (
-    <View style={styles.container}>
+    <View style={[styles.container]}>
       <View style={styles.titulo}>
         <Text style={{ fontSize: 50, color: "white" }}>Configurações</Text>
       </View>
@@ -46,16 +46,16 @@ export default function Configuracoes() {
         </View>
         <View style={{width: "50%", marginTop: 15, marginBottom: 15}}>
           <Checkbox
-            isChecked={acess}
-            onClick={handleChangeAcess}
+            isChecked={lightMode}
+            onClick={handleLightMode}
             uncheckedCheckBoxColor="grey"
             checkedCheckBoxColor="#54B8E5"
             leftText="Tema Claro"
             leftTextStyle={{ marginLeft: 30, fontSize: 20 }}
           />
           <Checkbox
-            isChecked={acess2}
-            onClick={handleChangeAcess2}
+            isChecked={darkMode}
+            onClick = {handleDarkMode}
             uncheckedCheckBoxColor="grey"
             checkedCheckBoxColor="#54B8E5"
             leftText="Tema Escuro"

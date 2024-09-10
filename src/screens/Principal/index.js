@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   StyleSheet,
   View,
   Image,
-  Button,
   Text,
-  TextInput,
   Pressable,
-  div,
   ScrollView,
 } from "react-native";
 

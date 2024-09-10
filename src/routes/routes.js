@@ -12,6 +12,8 @@ import Configuracoes from "../screens/Configacoes";
 import Principal from "../screens/Principal";
 import Local from "../screens/Local";
 
+import React from "react";
+
 export default function Routes() {
   return (
     <NavigationContainer>
