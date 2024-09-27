@@ -5,16 +5,28 @@ import {
   Text,
   Pressable,
   ScrollView,
+  Image,
+  Dimensions,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Rating } from "react-native-ratings";
+import Carousel from "react-native-reanimated-carousel";
+
+const { width: screenWidth } = Dimensions.get("window");
 
 export default function Principal() {
   const navigation = useNavigation();
   const [places, setPlaces] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Imagem estatica para carrossel
+  //Para add mais img, só copiar a estrutura
+  const carouselImages = [
+    { id: 1, image: require('../../../assets/mirante.jpg') },
+    { id: 2, image: require('../../../assets/paisagem2.jpg') },
+  ];
 
   useEffect(() => {
     const checkLoginStatus = async () => {
@@ -38,7 +50,6 @@ export default function Principal() {
           throw new Error("Failed to fetch places");
         }
         const data = await response.json();
-
         setPlaces(data);
       } catch (error) {
         console.error(error);
@@ -51,9 +62,25 @@ export default function Principal() {
     return null;
   }
 
+  const renderCarouselItem = ({ item }) => {
+    return (
+      <Image source={item.image} style={styles.carouselImage} />
+    );
+  };
+
   return (
     <View style={{ flex: 1 }}>
       <ScrollView>
+        <View>
+          <Carousel
+            data={carouselImages}
+            renderItem={renderCarouselItem}
+            width={screenWidth}
+            height={200}
+            loop={true}
+          />
+        </View>
+
         <Text style={styles.title}>Principais pontos turísticos</Text>
         <View style={styles.touristContainer}>
           {places.map((place) => (
@@ -98,6 +125,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
     paddingHorizontal: 20,
   },
+  carouselTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginTop: 20,
+    paddingHorizontal: 20,
+    textAlign: "center",
+  },
   touristContainer: {
     paddingHorizontal: 20,
   },
@@ -130,5 +164,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 5,
     color: "#555",
+  },
+  carouselImage: {
+    width: screenWidth,
+    height: 200,
+    borderRadius: 8,
   },
 });
