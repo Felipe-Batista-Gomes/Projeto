@@ -26,6 +26,9 @@ export default function Principal() {
   const carouselImages = [
     { id: 1, image: require('../../../assets/mirante.jpg') },
     { id: 2, image: require('../../../assets/paisagem2.jpg') },
+    { id: 3, image: require('../../../assets/nordestino.png') },
+    { id: 4, image: require('../../../assets/complexo.jpeg') },
+    { id: 5, image: require('../../../assets/Verde e Rosa.jpeg') },
   ];
 
   useEffect(() => {
