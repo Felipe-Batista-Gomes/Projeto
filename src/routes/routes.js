@@ -10,6 +10,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import CustomDrawerContent from "./CustomDrawerContent";
+import Configuracoes from "../screens/Configacoes";
 
 const Drawer = createDrawerNavigator();
 
@@ -48,6 +49,11 @@ export default function Routes() {
           name="Perfil"
           component={Perfil}
           options={{ headerTitle: "Tela do Perfil" }}
+        />
+        <Drawer.Screen
+          name="Configurações"
+          component={Configuracoes}
+          options={{ headerTitle: "Tela de Configurações" }}
         />
         <Drawer.Screen
           name="Login"
