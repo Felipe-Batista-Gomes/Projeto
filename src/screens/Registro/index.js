@@ -8,7 +8,7 @@ import {
   Pressable,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { ScrollView } from "react-native-web";
+import { ScrollView } from "react-native";
 import Toast from "react-native-toast-message";
 
 const handleRegister = (fullName, username, email, password, navigation) => {
