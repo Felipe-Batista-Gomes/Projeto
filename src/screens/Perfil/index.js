@@ -5,48 +5,54 @@ import {
   Text,
   ScrollView,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { Rating } from "react-native-ratings";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTranslation } from "react-i18next";
+import { useCallback } from "react";
 
 export default function Perfil() {
   const navigation = useNavigation();
   const [userData, setUserData] = useState(null);
   const { t } = useTranslation();
 
-  useEffect(() => {
-    const fetchUserData = async () => {
+  const fetchUserData = async () => {
+    try {
       const token = await AsyncStorage.getItem("token");
       if (!token) {
         navigation.navigate("Login");
-        return;
+        return 1;  // Error code for missing token
       }
 
-      try {
-        const response = await fetch(
-          "https://backend-ornz.onrender.com/api/users/getuser",
-          {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch user data");
+      const response = await fetch(
+        "https://backend-ornz.onrender.com/api/users/getuser",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
+      );
 
-        const data = await response.json();
-        setUserData(data);
-      } catch (error) {
-        console.error(error);
+      if (!response.ok) {
+        throw new Error("Failed to fetch user data");
       }
-    };
 
-    fetchUserData();
-  }, []);
+      const data = await response.json();
+      setUserData(data);
+      return 0;  // Success code
+    } catch (error) {
+      console.error(error);
+      return 2;  // Error code for fetch failure
+    }
+  };
+
+  // Fetch user data when the screen is focused
+  useFocusEffect(
+    useCallback(() => {
+      fetchUserData();
+    }, [])
+  );
 
   if (!userData) {
     return (
@@ -170,4 +176,4 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 5,
   },
-});
+})
