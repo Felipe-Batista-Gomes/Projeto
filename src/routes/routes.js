@@ -1,21 +1,24 @@
+import React, { useEffect, useState } from "react";
+import { ActivityIndicator, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useTranslation } from "react-i18next";
+
 import Prob from "../screens/Prob";
 import Login from "../screens/Login";
 import Local from "../screens/Local";
 import Perfil from "../screens/Perfil";
 import Registro from "../screens/Registro";
 import Principal from "../screens/Principal";
-import React, { useEffect, useState } from "react";
-import { ActivityIndicator, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import Configuracoes from "../screens/Configuracoes";
 import CustomDrawerContent from "./CustomDrawerContent";
-import Configuracoes from "../screens/Configacoes";
 
 const Drawer = createDrawerNavigator();
 
 export default function Routes() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const checkLoginStatus = async () => {
@@ -43,17 +46,17 @@ export default function Routes() {
         <Drawer.Screen
           name="Principal"
           component={Principal}
-          options={{ headerTitle: "Tela Principal" }}
+          options={{ headerTitle: t("homeScreenTitle") }}
         />
         <Drawer.Screen
           name="Perfil"
           component={Perfil}
-          options={{ headerTitle: "Tela do Perfil" }}
+          options={{ headerTitle: t("profileScreenTitle") }}
         />
         <Drawer.Screen
           name="Configurações"
           component={Configuracoes}
-          options={{ headerTitle: "Tela de Configurações" }}
+          options={{ headerTitle: t("settingsScreenTitle") }}
         />
         <Drawer.Screen
           name="Login"
@@ -76,7 +79,10 @@ export default function Routes() {
         <Drawer.Screen
           name="Local"
           component={Local}
-          options={{ drawerItemStyle: { display: "none" }, headerTitle: "Tela de Estabelecimento" }}
+          options={{
+            drawerItemStyle: { display: "none" },
+            headerTitle: t("localScreenTitle"),
+          }}
         />
       </Drawer.Navigator>
     </NavigationContainer>
