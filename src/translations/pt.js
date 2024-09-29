@@ -16,6 +16,7 @@ export default {
       "profileFeedbackTitle": "Seus Feedbacks",
       "profileFeedbackPlace": "Lugar",
       "profileFeedbackPlaceholder": "Sua avaliação sobre o lugar vai aqui. Você pode escrever um comentário sobre sua experiência.",
-      "profileSection": "Perfil"
+      "profileSection": "Perfil",
+      "logoutButton": "Sair"
     }
   }

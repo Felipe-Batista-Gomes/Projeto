@@ -16,6 +16,7 @@ export default {
       "profileFeedbackTitle": "Your Feedbacks",
       "profileFeedbackPlace": "Place",
       "profileFeedbackPlaceholder": "Your review about the place goes here. You can write a comment about your experience.",
-      "profileSection": "Profile"
+      "profileSection": "Profile",
+      "logoutButton": "Logout"
     }
   };

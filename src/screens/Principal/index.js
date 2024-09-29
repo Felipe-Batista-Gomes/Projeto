@@ -13,6 +13,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Rating } from "react-native-ratings";
 import Carousel from "react-native-reanimated-carousel";
+import { useTranslation } from "react-i18next";
 
 const { width: screenWidth } = Dimensions.get("window");
 
@@ -20,9 +21,8 @@ export default function Principal() {
   const navigation = useNavigation();
   const [places, setPlaces] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { t } = useTranslation();
 
-  // Imagem estatica para carrossel
-  //Para add mais img, só copiar a estrutura
   const carouselImages = [
     { id: 1, image: require('../../../assets/mirante.jpg') },
     { id: 2, image: require('../../../assets/Amarelinho.jpeg') },
@@ -50,7 +50,7 @@ export default function Principal() {
           "https://backend-ornz.onrender.com/api/locals/"
         );
         if (!response.ok) {
-          throw new Error("Failed to fetch places");
+          throw new Error(t("fetchError"));
         }
         const data = await response.json();
         setPlaces(data);
@@ -66,9 +66,7 @@ export default function Principal() {
   }
 
   const renderCarouselItem = ({ item }) => {
-    return (
-      <Image source={item.image} style={styles.carouselImage} />
-    );
+    return <Image source={item.image} style={styles.carouselImage} />;
   };
 
   return (
@@ -84,7 +82,7 @@ export default function Principal() {
           />
         </View>
 
-        <Text style={styles.title}>Principais pontos turísticos</Text>
+        <Text style={styles.title}>{t("mainTouristTitle")}</Text>
         <View style={styles.touristContainer}>
           {places.map((place) => (
             <Pressable
