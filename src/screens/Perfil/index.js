@@ -2,18 +2,18 @@ import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
-  Image,
   Text,
-  Pressable,
   ScrollView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Rating } from "react-native-ratings";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useTranslation } from "react-i18next";
 
 export default function Perfil() {
   const navigation = useNavigation();
   const [userData, setUserData] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -51,7 +51,7 @@ export default function Perfil() {
   if (!userData) {
     return (
       <View style={styles.loadingContainer}>
-        <Text>Loading...</Text>
+        <Text>{t("profileLoading")}</Text>
       </View>
     );
   }
@@ -73,16 +73,15 @@ export default function Perfil() {
         </View>
 
         <Text style={styles.description}>
-          Sua descrição vai aqui. Você pode atualizar essa seção com informações
-          sobre você.
+          {t("profileDescriptionPlaceholder")}
         </Text>
 
-        <Text style={styles.sectionTitle}>Seus Feedbacks</Text>
+        <Text style={styles.sectionTitle}>{t("profileFeedbackTitle")}</Text>
         <View style={styles.feedbackContainer}>
           <View style={styles.feedbackItem}>
             <View style={styles.feedbackImage}></View>
             <View style={styles.feedbackTextContainer}>
-              <Text style={styles.feedbackPlace}>Lugar</Text>
+              <Text style={styles.feedbackPlace}>{t("profileFeedbackPlace")}</Text>
               <Rating
                 type="custom"
                 ratingColor="orange"
@@ -93,8 +92,7 @@ export default function Perfil() {
                 startingValue={4}
               />
               <Text style={styles.feedbackText}>
-                Sua avaliação sobre o lugar vai aqui. Você pode escrever um
-                comentário sobre sua experiência.
+                {t("profileFeedbackPlaceholder")}
               </Text>
             </View>
           </View>
@@ -109,26 +107,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingTop: 50,
-    paddingHorizontal: 20,
-  },
-  hamburgerMenu: {
-    padding: 10,
-  },
-  hamburgerIcon: {
-    width: 30,
-    height: 30,
-  },
-  settingsIcon: {
-    padding: 10,
-  },
-  icon: {
-    width: 30,
-    height: 30,
   },
   profilePictureContainer: {
     alignItems: "center",
