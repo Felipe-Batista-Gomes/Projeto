@@ -5,6 +5,10 @@ export default {
       "settingsScreenTitle": "Settings",
       "localScreenTitle": "Local",
       "accessibility": "Accessibility",
+      "theme": "Themes",
+      "selectTheme": "select a theme",
+      "light": "Light",
+      "dark": "Dark",
       "languages": "Languages",
       "selectLanguage": "Select a language...",
       "mainTouristTitle": "Main Tourist Spots",
@@ -21,6 +25,6 @@ export default {
       "changeProfile": "Change Profile",
       "changeNamePlaceholder": "Write your new user name here...",
       "changeDescriptionPlaceholder": "Write your new description here...",
-      "saveChanges": "Save Changes",
+      "saveChanges": "Save Changes"
     }
   };

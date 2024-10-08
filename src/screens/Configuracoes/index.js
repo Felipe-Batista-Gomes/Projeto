@@ -2,10 +2,12 @@ import React from "react";
 import { StyleSheet, View, Text, TextInput, Pressable} from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 
 
 export default function Configuracoes() {
   const { t, i18n } = useTranslation();
+  const [theme, setTheme] = useState("");
 
   const changeLanguage = (value) => {
     i18n.changeLanguage(value);
@@ -25,6 +27,8 @@ export default function Configuracoes() {
             items={[
               { label: "Português (Brasil)", value: "pt-br" },
               { label: "English", value: "en" },
+              { label: "Español", value: "es" },
+              { label: "Français", value: "fr" },
             ]}
             style={pickerSelectStyles}
           />
@@ -37,6 +41,23 @@ export default function Configuracoes() {
         <Pressable style={styles.salvar}>
           <Text style={styles.stexto}>{t("saveChanges")}</Text>
         </Pressable>
+      </View>
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>{t("accessibility")}</Text>
+        <View style={styles.pickerContainer}>
+          <RNPickerSelect
+            placeholder={{
+              label: t("selectTheme"),
+              color: "darkblue",
+            }}
+            onValueChange={(value) => setTheme(value)}
+            items={[
+              { label: t("light"), value: "light" },
+              { label: t("dark"), value: "dark" },
+            ]}
+            style={pickerSelectStyles}
+          />
+        </View>
       </View>
     </View>
   );
