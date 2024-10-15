@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, View, Text, TextInput, Pressable} from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import AppContext from "../../themes/AppContext";
+import { useTheme } from "@react-navigation/native";
 
 
 export default function Configuracoes() {
   const { t, i18n } = useTranslation();
-  const [theme, setTheme] = useState("");
 
   const changeLanguage = (value) => {
     i18n.changeLanguage(value);
   };
+
+  const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
+
+  const theme = useTheme();
 
   return (
     <View style={styles.container}>
@@ -50,10 +55,10 @@ export default function Configuracoes() {
               label: t("selectTheme"),
               color: "darkblue",
             }}
-            onValueChange={(value) => setTheme(value)}
+            onValueChange={(value) => setIsDarkTheme(value) && console.log(isDarkTheme)}
             items={[
-              { label: t("light"), value: "light" },
-              { label: t("dark"), value: "dark" },
+              { label: t("light"), value: false },
+              { label: t("dark"), value: true },
             ]}
             style={pickerSelectStyles}
           />

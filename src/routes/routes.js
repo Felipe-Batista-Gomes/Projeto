@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { ActivityIndicator, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -13,6 +13,8 @@ import Registro from "../screens/Registro";
 import Principal from "../screens/Principal";
 import Configuracoes from "../screens/Configuracoes";
 import CustomDrawerContent from "./CustomDrawerContent";
+import DarkTheme from "../themes/darktheme";
+import LightTheme from "../themes/lighttheme";
 
 const Drawer = createDrawerNavigator();
 
@@ -38,7 +40,6 @@ export default function Routes() {
   }
 
   return (
-    <NavigationContainer>
       <Drawer.Navigator
         initialRouteName={isLoggedIn ? "Principal" : "Login"}
         drawerContent={(props) => <CustomDrawerContent {...props} />}
@@ -85,6 +86,5 @@ export default function Routes() {
           }}
         />
       </Drawer.Navigator>
-    </NavigationContainer>
   );
 }
