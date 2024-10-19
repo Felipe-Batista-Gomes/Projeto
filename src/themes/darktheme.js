@@ -1,9 +1,9 @@
 const DarkTheme = {
     isDark: true,
     colors: {
-        background: 'black',
+        background: '#37373B',
         text: 'white',
-        superIdol: 'asian'
+        textprincconf: "white"
     }
 }
 

@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { StyleSheet, View, Text, TextInput, Pressable} from "react-native";
+import { StyleSheet, View, Text, TextInput, Pressable, Switch} from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import AppContext from "../../themes/AppContext";
-import { useTheme } from "@react-navigation/native";
-
+import DarkTheme from "../../themes/darktheme";
+import LightTheme from "../../themes/lighttheme";
 
 export default function Configuracoes() {
   const { t, i18n } = useTranslation();
@@ -16,12 +16,10 @@ export default function Configuracoes() {
 
   const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
 
-  const theme = useTheme();
-
   return (
-    <View style={styles.container}>
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>{t("languages")}</Text>
+    <View style={{flex: 1, paddingHorizontal: 20, backgroundColor: isDarkTheme ? DarkTheme.colors.background : LightTheme.colors.background}}>
+      <View style={{marginBottom: 10, paddingVertical: 20, borderBottomWidth: 1, borderBottomColor: "#DDDDDD",}}>
+        <Text style={{fontSize: 32, fontWeight: "bold", color: isDarkTheme ? DarkTheme.colors.textprincconf : LightTheme.colors.textprincconf, textAlign: "center", marginBottom: 20,}}>{t("languages")}</Text>
         <View style={styles.pickerContainer}>
           <RNPickerSelect
             placeholder={{
@@ -39,29 +37,22 @@ export default function Configuracoes() {
           />
         </View>
       </View>
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>{t("changeProfile")}</Text>
-        <TextInput style={styles.inputo} placeholder={t("changeNamePlaceholder")}></TextInput>
-        <TextInput style={styles.inputo} placeholder={t("changeDescriptionPlaceholder")}></TextInput>
+      <View style={{marginBottom: 10, paddingVertical: 20, borderBottomWidth: 1, borderBottomColor: "#DDDDDD",}}>
+        <Text style={{fontSize: 32, fontWeight: "bold", color: isDarkTheme ? DarkTheme.colors.textprincconf : LightTheme.colors.textprincconf, textAlign: "center", marginBottom: 20,}}>{t("changeProfile")}</Text>
+        <TextInput style={{marginTop: 10, borderWidth: 1, borderColor: isDarkTheme ? "lightgrey" : "darkgrey" , padding: 5}} placeholderTextColor={isDarkTheme ? "lightgrey" : "darkgrey"} placeholder={t("changeNamePlaceholder")}></TextInput>
+        <TextInput style={{marginTop: 10, borderWidth: 1, borderColor: isDarkTheme ? "lightgrey" : "darkgrey", padding: 5}} placeholderTextColor={isDarkTheme ? "lightgrey" : "darkgrey"} placeholder={t("changeDescriptionPlaceholder")}></TextInput>
         <Pressable style={styles.salvar}>
           <Text style={styles.stexto}>{t("saveChanges")}</Text>
         </Pressable>
       </View>
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>{t("accessibility")}</Text>
+      <View style={{marginBottom: 10, paddingVertical: 20, borderBottomWidth: 1, borderBottomColor: "#DDDDDD",}}>
+        <Text style={{fontSize: 32, fontWeight: "bold", color: isDarkTheme ? DarkTheme.colors.textprincconf : LightTheme.colors.textprincconf, textAlign: "center", marginBottom: 20,}}>{t("accessibility")}</Text>
         <View style={styles.pickerContainer}>
-          <RNPickerSelect
-            placeholder={{
-              label: t("selectTheme"),
-              color: "darkblue",
-            }}
-            onValueChange={(value) => setIsDarkTheme(value) && console.log(isDarkTheme)}
-            items={[
-              { label: t("light"), value: false },
-              { label: t("dark"), value: true },
-            ]}
-            style={pickerSelectStyles}
-          />
+          <Text style={{color: isDarkTheme ? "white" : "#333333"}}><Text style={{fontWeight: "bold"}}>Temas:    </Text> Claro</Text>
+          <Switch value={isDarkTheme}  onChange={() => {
+            setIsDarkTheme(prev => !prev)
+          }}/>
+          <Text > Escuro</Text>
         </View>
       </View>
     </View>
@@ -69,24 +60,6 @@ export default function Configuracoes() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 20,
-    backgroundColor: "#F5F5F5",
-  },
-  section: {
-    marginBottom: 10,
-    paddingVertical: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: "#DDDDDD",
-    
-  },
-  inputo: {
-    marginTop: 10,
-    borderWidth: 1,
-    borderColor: "darkgrey",
-    padding: 5,
-  },
   stexto: {
     color: "white",
     fontWeight: "bold",
@@ -101,13 +74,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  sectionTitle: {
-    fontSize: 32,
-    fontWeight: "bold",
-    color: "#333333",
-    textAlign: "center",
-    marginBottom: 20,
-  },
   checkboxContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -119,7 +85,9 @@ const styles = StyleSheet.create({
     color: "#333333",
   },
   pickerContainer: {
+    justifyContent: "center",
     alignItems: "center",
+    flexDirection: "row"
   },
 });
 

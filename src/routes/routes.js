@@ -39,6 +39,7 @@ export default function Routes() {
     );
   }
 
+
   return (
       <Drawer.Navigator
         initialRouteName={isLoggedIn ? "Principal" : "Login"}

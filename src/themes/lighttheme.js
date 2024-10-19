@@ -3,7 +3,7 @@ const LightTheme = {
     colors: {
         background: '#F5F5F5',
         text: 'black',
-        superIdol: 'american'
+        textprincconf : "#333333"
     }
 }
 
