@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -7,6 +7,7 @@ import {
   ScrollView,
   Image,
   Dimensions,
+  Button
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -14,6 +15,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Rating } from "react-native-ratings";
 import Carousel from "react-native-reanimated-carousel";
 import { useTranslation } from "react-i18next";
+import AppContext from "../../themes/AppContext";
 
 const { width: screenWidth } = Dimensions.get("window");
 
@@ -22,6 +24,8 @@ export default function Principal() {
   const [places, setPlaces] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { t } = useTranslation();
+
+  const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
 
   const carouselImages = [
     { id: 1, image: require('../../../assets/mirante.jpg') },
@@ -82,7 +86,7 @@ export default function Principal() {
           />
         </View>
 
-        <Text style={styles.title}>{t("mainTouristTitle")}</Text>
+        <Text style={[styles.title, {color: isDarkTheme ? "#FFFFFF" : "#333333"}]}>{t("mainTouristTitle")}</Text>
         <View style={styles.touristContainer}>
           {places.map((place) => (
             <Pressable

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, useContext } from "react";
 import { ActivityIndicator, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -15,12 +15,14 @@ import Configuracoes from "../screens/Configuracoes";
 import CustomDrawerContent from "./CustomDrawerContent";
 import DarkTheme from "../themes/darktheme";
 import LightTheme from "../themes/lighttheme";
+import AppContext from "../themes/AppContext";
 
 const Drawer = createDrawerNavigator();
 
 export default function Routes() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const { t } = useTranslation();
+  const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
 
   useEffect(() => {
     const checkLoginStatus = async () => {
@@ -44,11 +46,16 @@ export default function Routes() {
       <Drawer.Navigator
         initialRouteName={isLoggedIn ? "Principal" : "Login"}
         drawerContent={(props) => <CustomDrawerContent {...props} />}
+        screenOptions={{
+          drawerStyle: {
+            backgroundColor: isDarkTheme ? DarkTheme.colors.background : LightTheme.colors.background
+          }
+        }}
       >
         <Drawer.Screen
           name="Principal"
           component={Principal}
-          options={{ headerTitle: t("homeScreenTitle") }}
+          options={{ headerTitle: t("homeScreenTitle")}}
         />
         <Drawer.Screen
           name="Perfil"

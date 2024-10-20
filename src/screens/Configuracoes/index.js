@@ -52,7 +52,7 @@ export default function Configuracoes() {
           <Switch value={isDarkTheme}  onChange={() => {
             setIsDarkTheme(prev => !prev)
           }}/>
-          <Text > Escuro</Text>
+          <Text style={{color: isDarkTheme ? "white" : "#333333"}}> Escuro</Text>
         </View>
       </View>
     </View>

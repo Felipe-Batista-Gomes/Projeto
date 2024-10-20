@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -12,8 +12,11 @@ import {
 
 import { useNavigation } from "@react-navigation/native";
 
+import AppContext from "../../themes/AppContext";
+
 export default function Prob() {
   const navigation = useNavigation();
+  const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
   return (
     <View style={styles.container}>
       <ScrollView horizontal={false}>
@@ -22,18 +25,19 @@ export default function Prob() {
           source={require("../../../assets/logo.png")}
           style={styles.logo}
         />
-        <Text style={styles.titulo}>Não consegue logar?</Text>
-        <Text style={{ color: "grey", paddingBottom: 10, fontSize: 13 }}>
+        <Text style={[styles.titulo, {color: isDarkTheme ? "#DDD" : "black"}]}>Não consegue logar?</Text>
+        <Text style={{ color: isDarkTheme ? "#CCC" : "darkgrey", paddingBottom: 10, fontSize: 13 }}>
           Informe seu email, e te mandaremos um código para redefinir sua senha.
         </Text>
         <TextInput
           placeholder="Digite seu email"
-          style={styles.input}
+          placeholderTextColor={isDarkTheme ? "#FFF" : "darkgrey"}
+            style={[styles.input, {borderColor: isDarkTheme ? "#FFF" : "black", color: isDarkTheme ? "#FFF" : "darkgrey"}]}
         ></TextInput>
         <Pressable style={styles.botao}>
           <Text style={styles.buttxt}>Enviar código</Text>
         </Pressable>
-        <Text style={{ color: "grey", padding: 20, paddingBottom: 0 }}>Ou</Text>
+        <Text style={{ color: isDarkTheme ? "#CCC" : "grey", padding: 20, paddingBottom: 0 }}>Ou</Text>
       </View>
       <View style={styles.container2}>
         <Pressable

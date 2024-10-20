@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   StyleSheet,
   View,
@@ -12,6 +12,8 @@ import {
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import AppContext from "../../themes/AppContext";
+import DarkTheme from "../../themes/darktheme"
 
 let MapView, Marker, RatingComponent, RatingDisplay;
 
@@ -55,6 +57,8 @@ export default function Local() {
   const navigation = useNavigation();
   const route = useRoute();
   const { id } = route.params;
+
+  const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
 
   const [place, setPlace] = useState(null);
   const [feedbacks, setFeedbacks] = useState([]);
@@ -198,7 +202,7 @@ export default function Local() {
         )}
 
         {/* Place Name */}
-        <Text style={styles.placeName}>{place.name}</Text>
+        <Text style={[styles.placeName, {color: isDarkTheme ? "#FFF" : "#333"}]}>{place.name}</Text>
 
         {/* Average Rating */}
         <View style={styles.averageRatingContainer}>
@@ -210,17 +214,17 @@ export default function Local() {
             ratingBackgroundColor="#ccc"
             ratingColor="#FFD700"
           />
-          <Text style={styles.averageRatingText}>
+          <Text style={[styles.averageRatingText, {color: isDarkTheme ? "#FFF" : "#777"}]}>
             {averageRating.toFixed(1)} / 5
           </Text>
         </View>
 
         {/* Place Description */}
-        <Text style={styles.placeDescription}>{place.description}</Text>
+        <Text style={[styles.placeDescription, {color: isDarkTheme ? "#FFF" : "#555"}]}>{place.description}</Text>
 
         {/* Feedback Form */}
-        <View style={styles.feedbackForm}>
-          <Text style={styles.feedbackFormTitle}>Deixe seu feedback</Text>
+        <View style={[styles.feedbackForm, {backgroundColor: isDarkTheme ? DarkTheme.colors.background : "#f9f9f9"}]}>
+          <Text style={[styles.feedbackFormTitle, {color: isDarkTheme ? "#ddd" : "#555"}]}>Deixe seu feedback</Text>
           <RatingComponent
             startingValue={userRating}
             onFinishRating={(rating) => setUserRating(rating)}
@@ -245,12 +249,12 @@ export default function Local() {
         </View>
 
         {/* Existing Feedbacks */}
-        <Text style={styles.sectionTitle}>Feedbacks</Text>
+        <Text style={[styles.sectionTitle, {color: isDarkTheme ? "#ddd" : "#333"}]}>Feedbacks</Text>
         {feedbacks && feedbacks.length > 0 ? (
           feedbacks.map((feedback) => (
             <View key={feedback._id} style={styles.feedbackItem}>
               <View style={styles.feedbackHeader}>
-                <Text style={styles.feedbackUser}>
+                <Text style={[styles.feedbackUser, {color: isDarkTheme ? "#FFFFFF" : "#333"}]}>
                   {feedback.user?.name || "Usuário"}
                 </Text>
                 {Platform.OS !== "web" ? (
@@ -263,12 +267,12 @@ export default function Local() {
                     ratingColor="#FFD700"
                   />
                 ) : (
-                  <Text style={styles.feedbackRatingText}>
+                  <Text style={[styles.feedbackRatingText, {color: isDarkTheme ? "#FFF" : "#333"}]}>
                     Avaliação: {feedback.rating}/5
                   </Text>
                 )}
               </View>
-              <Text style={styles.feedbackComment}>{feedback.comment}</Text>
+              <Text style={[styles.feedbackComment, {color: isDarkTheme ? "#FFFFFF" : "#555"}]}>{feedback.comment}</Text>
             </View>
           ))
         ) : (
@@ -323,19 +327,16 @@ const styles = StyleSheet.create({
   averageRatingText: {
     fontSize: 18,
     marginLeft: 10,
-    color: "#777",
   },
   placeDescription: {
     fontSize: 16,
     marginTop: 10,
     paddingHorizontal: 20,
-    color: "#555",
     lineHeight: 22,
   },
   feedbackForm: {
     marginTop: 20,
     paddingHorizontal: 20,
-    backgroundColor: "#f9f9f9",
     padding: 15,
     borderRadius: 10,
   },
@@ -343,7 +344,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 10,
-    color: "#333",
   },
   feedbackInput: {
     height: 100,
@@ -381,7 +381,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 30,
     paddingHorizontal: 20,
-    color: "#333",
   },
   feedbackItem: {
     padding: 20,
@@ -396,11 +395,9 @@ const styles = StyleSheet.create({
   feedbackUser: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#333",
   },
   feedbackRatingText: {
     fontSize: 16,
-    color: "#555",
   },
   ratingDisplayContainer: {
     flexDirection: "row",
@@ -409,7 +406,6 @@ const styles = StyleSheet.create({
   feedbackComment: {
     marginTop: 10,
     fontSize: 16,
-    color: "#555",
     lineHeight: 22,
   },
   noFeedbackText: {

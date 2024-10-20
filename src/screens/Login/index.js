@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   StyleSheet,
   View,
@@ -11,9 +11,14 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import Toast from "react-native-toast-message";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import AppContext from "../../themes/AppContext";
+import DarkTheme from "../../themes/darktheme";
+import LightTheme from "../../themes/lighttheme";
 
 export default function Login() {
   const navigation = useNavigation();
+
+  const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -62,16 +67,18 @@ export default function Login() {
             source={require("../../../assets/logo.png")}
             style={styles.logo}
           />
-          <Text style={styles.titulo}>Login</Text>
+          <Text style={[styles.titulo, {color: isDarkTheme ? "#FFF" : "black"}]}>Login</Text>
           <TextInput
             placeholder="Digite seu email"
-            style={styles.input}
+            placeholderTextColor={isDarkTheme ? "#FFF" : "darkgrey"}
+            style={[styles.input, {borderColor: isDarkTheme ? "#FFF" : "black", color: isDarkTheme ? "#FFF" : "black"}]}
             value={email}
             onChangeText={setEmail}
           />
           <TextInput
             placeholder="Digite sua senha"
-            style={styles.input}
+            placeholderTextColor={isDarkTheme ? "#FFF" : "darkgrey"}
+            style={[styles.input, {borderColor: isDarkTheme ? "#FFF" : "black", color: isDarkTheme ? "#FFF" : "black"}]}
             value={password}
             onChangeText={setPassword}
             secureTextEntry={true}
@@ -88,7 +95,7 @@ export default function Login() {
               borderColor: "darkblue",
             }}
           >
-            <Text style={{ color: "darkblue" }}>Esqueceu sua senha?</Text>
+            <Text style={{ color: "darkblue", backgroundColor: isDarkTheme ? DarkTheme.colors.background : LightTheme.colors.background}}>Esqueceu sua senha?</Text>
           </Pressable>
 
           <Pressable onPress={handleLogin} style={styles.botao}>
@@ -141,7 +148,6 @@ const styles = StyleSheet.create({
     marginTop: 25,
     padding: 5,
     borderWidth: 1,
-    borderColor: "black",
     borderRadius: 5,
   },
   botao: {

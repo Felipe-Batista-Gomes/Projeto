@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -10,6 +10,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { ScrollView } from "react-native";
 import Toast from "react-native-toast-message";
+import AppContext from "../../themes/AppContext";
 
 const handleRegister = (fullName, username, email, password, navigation) => {
   fetch("https://backend-ornz.onrender.com/api/users/register", {
@@ -55,6 +56,8 @@ export default function Registro() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
+
   return (
     <View style={styles.container}>
       <ScrollView horizontal={false}>
@@ -63,32 +66,36 @@ export default function Registro() {
             source={require("../../../assets/logo.png")}
             style={styles.logo}
           />
-          <Text style={styles.titulo}>Registro</Text>
+          <Text style={[styles.titulo, {color: isDarkTheme ? "#EEE" : "black"}]}>Registro</Text>
 
           <TextInput
             placeholder="Digite seu email"
-            style={styles.input}
+            placeholderTextColor={isDarkTheme ? "#FFF" : "darkgrey"}
+            style={[styles.input, {borderColor: isDarkTheme ? "#FFF" : "black", color: isDarkTheme ? "#FFF" : "black"}]}
             value={email}
             onChangeText={setEmail}
           />
 
           <TextInput
             placeholder="Digite seu nome completo"
-            style={styles.input}
+            placeholderTextColor={isDarkTheme ? "#FFF" : "darkgrey"}
+            style={[styles.input, {borderColor: isDarkTheme ? "#FFF" : "black", color: isDarkTheme ? "#FFF" : "black"}]}
             value={fullName}
             onChangeText={setFullName}
           />
 
           <TextInput
             placeholder="Digite o nome de usuário"
-            style={styles.input}
+            placeholderTextColor={isDarkTheme ? "#FFF" : "darkgrey"}
+            style={[styles.input, {borderColor: isDarkTheme ? "#FFF" : "black", color: isDarkTheme ? "#FFF" : "black"}]}
             value={username}
             onChangeText={setUsername}
           />
 
           <TextInput
             placeholder="Digite sua senha"
-            style={styles.input}
+            placeholderTextColor={isDarkTheme ? "#FFF" : "darkgrey"}
+            style={[styles.input, {borderColor: isDarkTheme ? "#FFF" : "black", color: isDarkTheme ? "#FFF" : "black"}]}
             value={password}
             onChangeText={setPassword}
             secureTextEntry={true}

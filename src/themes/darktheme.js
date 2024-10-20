@@ -4,6 +4,7 @@ const DarkTheme = {
         background: '#37373B',
         text: 'white',
         textprincconf: "white"
+        
     }
 }
 

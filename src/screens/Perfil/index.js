@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo, useContext } from "react";
 import {
   StyleSheet,
   View,
@@ -10,11 +10,18 @@ import { Rating } from "react-native-ratings";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTranslation } from "react-i18next";
 import { useCallback } from "react";
+import LightTheme from "../../themes/lighttheme";
+import DarkTheme from "../../themes/darktheme";
+import AppContext from "../../themes/AppContext";
 
 export default function Perfil() {
   const navigation = useNavigation();
   const [userData, setUserData] = useState(null);
   const { t } = useTranslation();
+
+  const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
+
+  
 
   const fetchUserData = async () => {
     try {
@@ -75,29 +82,29 @@ export default function Perfil() {
                 .toUpperCase()}
             </Text>
           </View>
-          <Text style={styles.userName}>{userData.name}</Text>
+          <Text style={[styles.userName, {color: isDarkTheme ?  "white" : "black"}]}>{userData.name}</Text>
         </View>
 
-        <Text style={styles.description}>
+        <Text style={[styles.description, {color: isDarkTheme ?  "#DEDEDE" : "#393D40"}]}>
           {t("profileDescriptionPlaceholder")}
         </Text>
 
-        <Text style={styles.sectionTitle}>{t("profileFeedbackTitle")}</Text>
+        <Text style={[styles.sectionTitle, {borderColor: isDarkTheme ? "lightgrey" : "grey", color: isDarkTheme ? "#DEDEDE" : "black"}]}>{t("profileFeedbackTitle")}</Text>
         <View style={styles.feedbackContainer}>
           <View style={styles.feedbackItem}>
             <View style={styles.feedbackImage}></View>
             <View style={styles.feedbackTextContainer}>
-              <Text style={styles.feedbackPlace}>{t("profileFeedbackPlace")}</Text>
+              <Text style={[styles.feedbackPlace, {borderColor: isDarkTheme ? "lightgrey" : "grey", color: isDarkTheme ? "#DEDEDE" : "black"}]}>{t("profileFeedbackPlace")}</Text>
               <Rating
                 type="custom"
                 ratingColor="orange"
-                ratingBackgroundColor="darkgrey"
+                ratingBackgroundColor= "darkgrey"
                 ratingCount={5}
                 imageSize={20}
                 readonly
                 startingValue={4}
               />
-              <Text style={styles.feedbackText}>
+              <Text style={[styles.feedbackText, {borderColor: isDarkTheme ? "lightgrey" : "grey", color: isDarkTheme ? "#DEDEDE" : "black"}]}>
                 {t("profileFeedbackPlaceholder")}
               </Text>
             </View>
@@ -141,11 +148,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     fontSize: 16,
     textAlign: "center",
-    color: "#393D40",
   },
   sectionTitle: {
     fontSize: 24,
-    borderColor: "grey",
     borderTopWidth: 1.5,
     marginTop: 25,
     marginLeft: 15,
