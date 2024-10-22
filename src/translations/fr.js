@@ -17,6 +17,13 @@ export default {
       "profileFeedbackPlace": "Lieu",
       "profileFeedbackPlaceholder": "Votre avis sur l'établissement est ici. Vous pouvez écrire un commentaire sur votre expérience.",
       "profileSection": "Profil",
-      "logoutButton": "Déconnexion"
+      "logoutButton": "Déconnexion",
+      "changeProfile": "Modifier le profil",
+      "changeNamePlaceholder": "Écrivez votre nouveau nom d'utilisateur ici",
+      "changeDescriptionPlaceholder": "Écrivez votre nouvelle description ici...",
+      "saveChanges": "Enregistrer les modifications",
+      "themes": "Thèmes:",
+      "light": "Clair",
+      "dark": "Foncé"
     }
   };

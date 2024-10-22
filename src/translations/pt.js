@@ -26,5 +26,8 @@ export default {
       "changeNamePlaceholder": "Escreva aqui seu novo nome de usuário...",
       "changeDescriptionPlaceholder": "Escreva aqui sua nova descrição...",
       "saveChanges": "Salvar Mudanças",
+      "themes": "Temas:",
+      "light": "Claro",
+      "dark": "Escuro"
     }
   }

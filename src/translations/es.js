@@ -21,6 +21,13 @@ export default {
         "profileFeedbackPlace": "Lugar",
         "profileFeedbackPlaceholder": "Tu reseña del lugar va aquí. Puedes escribir un comentario sobre tu experiencia.",
         "profileSection": "Perfil",
-        "logoutButton": "Salir"
+        "logoutButton": "Salir",
+        "changeProfile": "Cambiar Perfil",
+        "changeNamePlaceholder": "Introduzca aquí su nuevo nombre de usuario...",
+        "changeDescriptionPlaceholder": "Introduzca aquí su nueva descripción...",
+        "saveChanges": "Guardar Cambios",
+        "themes": "Temas",
+        "light": "Claro",
+        "dark": "Oscuro"
       }
     };
