@@ -22,9 +22,12 @@ export default {
       "profileFeedbackPlaceholder": "Votre avis sur l'établissement est ici. Vous pouvez écrire un commentaire sur votre expérience.",
       "profileSection": "Profil",
       "logoutButton": "Déconnexion",
-      "changeProfile": "Changer de profil",
-      "changeNamePlaceholder": "Entrez votre nouveau nom d'utilisateur ici",
-      "changeDescriptionPlaceholder": "Entrez votre nouvelle description ici",
-      "saveChanges": "Enregistrer les modifications"
+      "changeProfile": "Modifier le profil",
+      "changeNamePlaceholder": "Écrivez votre nouveau nom d'utilisateur ici",
+      "changeDescriptionPlaceholder": "Écrivez votre nouvelle description ici...",
+      "saveChanges": "Enregistrer les modifications",
+      "themes": "Thèmes:",
+      "light": "Clair",
+      "dark": "Foncé"
     }
   };

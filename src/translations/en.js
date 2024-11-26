@@ -25,6 +25,9 @@ export default {
       "changeProfile": "Change Profile",
       "changeNamePlaceholder": "Write your new user name here...",
       "changeDescriptionPlaceholder": "Write your new description here...",
-      "saveChanges": "Save Changes"
+      "saveChanges": "Save Changes",
+      "themes": "Themes:",
+      "light": "Light",
+      "dark": "Dark"
     }
   };

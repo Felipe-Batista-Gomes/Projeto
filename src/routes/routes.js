@@ -49,7 +49,11 @@ export default function Routes() {
         screenOptions={{
           drawerStyle: {
             backgroundColor: isDarkTheme ? DarkTheme.colors.background : LightTheme.colors.background
-          }
+          },
+          headerTintColor: isDarkTheme ? LightTheme.colors.background : DarkTheme.colors.background,
+          headerStyle: {
+            backgroundColor: isDarkTheme ? DarkTheme.colors.background : LightTheme.colors.background
+          },
         }}
       >
         <Drawer.Screen
