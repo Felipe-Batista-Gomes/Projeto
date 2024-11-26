@@ -48,11 +48,11 @@ export default function Configuracoes() {
       <View style={{marginBottom: 10, paddingVertical: 20, borderBottomWidth: 1, borderBottomColor: "#DDDDDD",}}>
         <Text style={{fontSize: 32, fontWeight: "bold", color: isDarkTheme ? DarkTheme.colors.textprincconf : LightTheme.colors.textprincconf, textAlign: "center", marginBottom: 20,}}>{t("accessibility")}</Text>
         <View style={styles.pickerContainer}>
-          <Text style={{color: isDarkTheme ? "white" : "#333333"}}><Text style={{fontWeight: "bold"}}>Temas:    </Text> Claro</Text>
+          <Text style={{color: isDarkTheme ? "white" : "#333333"}}><Text style={{fontWeight: "bold"}}>{t("theme")}:    </Text> {t("light")}</Text>
           <Switch value={isDarkTheme}  onChange={() => {
             setIsDarkTheme(prev => !prev)
           }}/>
-          <Text style={{color: isDarkTheme ? "white" : "#333333"}}> Escuro</Text>
+          <Text style={{color: isDarkTheme ? "white" : "#333333"}}> {t("dark")}</Text>
         </View>
       </View>
     </View>

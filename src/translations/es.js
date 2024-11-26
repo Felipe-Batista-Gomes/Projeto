@@ -5,7 +5,7 @@ export default {
         "settingsScreenTitle": "Ajustes",
         "localScreenTitle": "Pantalla de establecimiento",
         "accessibility": "Accesibilidad",
-        "theme": "Themes",
+        "theme": "Temas",
         "selectTheme": "select a theme",
         "light": "Claro",
         "dark": "Escuro",
@@ -21,6 +21,10 @@ export default {
         "profileFeedbackPlace": "Lugar",
         "profileFeedbackPlaceholder": "Tu reseña del lugar va aquí. Puedes escribir un comentario sobre tu experiencia.",
         "profileSection": "Perfil",
-        "logoutButton": "Salir"
+        "logoutButton": "Salir",
+        "changeProfile": "Cambiar perfil",
+        "changeNamePlaceholder": "Introduzca aquí su nuevo nombre de usuario...",
+        "changeDescriptionPlaceholder": "Introduzca aquí su nueva descripción...",
+        "saveChanges": "Guardar cambios"
       }
     };
