@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { StyleSheet, View, Text, TextInput, Pressable, Switch} from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 import { useTranslation } from "react-i18next";
@@ -6,8 +6,18 @@ import { useState } from "react";
 import AppContext from "../../themes/AppContext";
 import DarkTheme from "../../themes/darktheme";
 import LightTheme from "../../themes/lighttheme";
+import { useLocation} from "react-router";
 
 export default function Configuracoes() {
+  const location = useLocation();
+  const [name, SetName] = useState("");
+
+
+  useEffect(() => {
+    console.log(location);
+    SetName(location.state.name)
+  })
+
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (value) => {
@@ -37,14 +47,18 @@ export default function Configuracoes() {
           />
         </View>
       </View>
+
+
       <View style={{marginBottom: 10, paddingVertical: 20, borderBottomWidth: 1, borderBottomColor: "#DDDDDD",}}>
         <Text style={{fontSize: 32, fontWeight: "bold", color: isDarkTheme ? DarkTheme.colors.textprincconf : LightTheme.colors.textprincconf, textAlign: "center", marginBottom: 20,}}>{t("changeProfile")}</Text>
-        <TextInput style={{marginTop: 10, borderWidth: 1, borderColor: isDarkTheme ? "lightgrey" : "darkgrey" , padding: 5}} placeholderTextColor={isDarkTheme ? "lightgrey" : "darkgrey"} placeholder={t("changeNamePlaceholder")}></TextInput>
+        <TextInput style={{marginTop: 10, borderWidth: 1, borderColor: isDarkTheme ? "lightgrey" : "darkgrey" , padding: 5}} placeholderTextColor={isDarkTheme ? "lightgrey" : "darkgrey"} defaultValue={name} placeholder={t("changeNamePlaceholder")}></TextInput>
         <TextInput style={{marginTop: 10, borderWidth: 1, borderColor: isDarkTheme ? "lightgrey" : "darkgrey", padding: 5}} placeholderTextColor={isDarkTheme ? "lightgrey" : "darkgrey"} placeholder={t("changeDescriptionPlaceholder")}></TextInput>
         <Pressable style={styles.salvar}>
           <Text style={styles.stexto}>{t("saveChanges")}</Text>
         </Pressable>
       </View>
+
+
       <View style={{marginBottom: 10, paddingVertical: 20, borderBottomWidth: 1, borderBottomColor: "#DDDDDD",}}>
         <Text style={{fontSize: 32, fontWeight: "bold", color: isDarkTheme ? DarkTheme.colors.textprincconf : LightTheme.colors.textprincconf, textAlign: "center", marginBottom: 20,}}>{t("accessibility")}</Text>
         <View style={styles.pickerContainer}>

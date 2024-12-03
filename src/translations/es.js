@@ -6,7 +6,7 @@ export default {
         "localScreenTitle": "Pantalla de establecimiento",
         "accessibility": "Accesibilidad",
         "theme": "Temas",
-        "selectTheme": "select a theme",
+        "selectTheme": "Seleccione un tema",
         "light": "Claro",
         "dark": "Escuro",
         "languages": "Lenguas",
