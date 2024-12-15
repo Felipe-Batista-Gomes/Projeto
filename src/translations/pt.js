@@ -1,0 +1,33 @@
+export default {
+    translation: {
+      "homeScreenTitle": "Tela Principal",
+      "profileScreenTitle": "Tela do Perfil",
+      "settingsScreenTitle": "Configurações",
+      "localScreenTitle": "Tela de Estabelecimento",
+      "accessibility": "Acessibilidade",
+      "theme": "Temas",
+      "selectTheme": "selecione um tema",
+      "light": "Claro",
+      "dark": "Escuro",
+      "languages": "Idiomas",
+      "selectLanguage": "Selecione um idioma...",
+      "mainTouristTitle": "Principais Pontos Turísticos",
+      "fetchError": "Falha ao buscar lugares",
+      "averageRating": "Classificação Média",
+      "pointsOfInterest": "Pontos de Interesse",
+      "profileLoading": "Carregando...",
+      "profileDescriptionPlaceholder": "Sua descrição vai aqui. Você pode atualizar essa seção com informações sobre você.",
+      "profileFeedbackTitle": "Seus Feedbacks",
+      "profileFeedbackPlace": "Lugar",
+      "profileFeedbackPlaceholder": "Sua avaliação sobre o lugar vai aqui. Você pode escrever um comentário sobre sua experiência.",
+      "profileSection": "Perfil",
+      "logoutButton": "Sair",
+      "changeProfile": "Mudar Perfil",
+      "changeNamePlaceholder": "Escreva aqui seu novo nome de usuário...",
+      "changeDescriptionPlaceholder": "Escreva aqui sua nova descrição...",
+      "saveChanges": "Salvar Mudanças",
+      "themes": "Temas:",
+      "light": "Claro",
+      "dark": "Escuro"
+    }
+  }
