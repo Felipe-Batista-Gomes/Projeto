@@ -211,7 +211,8 @@ export default function Local() {
             imageSize={25}
             readonly
             showRating={false}
-            tintColor= {isDarkTheme ? "#37373B" : "#F5F5F5"}
+            ratingBackgroundColor="#ccc"
+            ratingColor="#FFD700"
           />
           <Text style={[styles.averageRatingText, {color: isDarkTheme ? "#FFF" : "#777"}]}>
             {averageRating.toFixed(1)} / 5
@@ -262,7 +263,8 @@ export default function Local() {
                     imageSize={20}
                     readonly
                     showRating={false}
-                    tintColor= {isDarkTheme ? "#37373B" : "#F5F5F5"}
+                    ratingBackgroundColor="#ccc"
+                    ratingColor="#FFD700"
                   />
                 ) : (
                   <Text style={[styles.feedbackRatingText, {color: isDarkTheme ? "#FFF" : "#333"}]}>

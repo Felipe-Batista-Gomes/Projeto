@@ -47,6 +47,7 @@ export default function Perfil() {
 
       const data = await response.json();
       setUserData(data);
+      console.log(data);
       return 0;  // Success code
     } catch (error) {
       console.error(error);
@@ -64,7 +65,7 @@ export default function Perfil() {
   if (!userData) {
     return (
       <View style={styles.loadingContainer}>
-        <Text>{t("profileLoading")}</Text>
+        <Text style={{color: isDarkTheme? "white" : "black"}}>{t("profileLoading")}</Text>
       </View>
     );
   }
@@ -83,6 +84,8 @@ export default function Perfil() {
             </Text>
           </View>
           <Text style={[styles.userName, {color: isDarkTheme ?  "white" : "black"}]}>{userData.name}</Text>
+          <Text style={[styles.userName, {color: isDarkTheme ?  "white" : "black"}]}>{userData.email}</Text>
+          <Text style={[styles.userName, {color: isDarkTheme ?  "white" : "black"}]}>{userData.username}</Text>
         </View>
 
         <Text style={[styles.description, {color: isDarkTheme ?  "#DEDEDE" : "#393D40"}]}>
@@ -103,7 +106,6 @@ export default function Perfil() {
                 imageSize={20}
                 readonly
                 startingValue={4}
-                tintColor= {isDarkTheme ? "#37373B" : "#F5F5F5"}
               />
               <Text style={[styles.feedbackText, {borderColor: isDarkTheme ? "lightgrey" : "grey", color: isDarkTheme ? "#DEDEDE" : "black"}]}>
                 {t("profileFeedbackPlaceholder")}
