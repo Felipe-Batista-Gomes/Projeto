@@ -5,7 +5,7 @@ export default {
       "settingsScreenTitle": "Paramètres",
       "localScreenTitle": "Locale",
       "accessibility": "Accessibilité",
-      "theme": "Thèmes",
+      "themes": "Thèmes",
       "selectTheme": "Sélectionnez un thème",
       "light": "Clair",
       "dark": "Sombre",
@@ -25,6 +25,8 @@ export default {
       "changeProfile": "Changer de profil",
       "changeNamePlaceholder": "Entrez votre nouveau nom d'utilisateur ici",
       "changeDescriptionPlaceholder": "Entrez votre nouvelle description ici",
-      "saveChanges": "Enregistrer les modifications"
+      "saveChanges": "Enregistrer les modifications",
+      "feedbackTitle": "Laissez votre commentaire ici",
+      "feedbackWrite": "Écrivez votre commentaire ici.",
     }
   };

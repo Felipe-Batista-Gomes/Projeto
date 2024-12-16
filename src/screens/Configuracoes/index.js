@@ -49,7 +49,7 @@ export default function Configuracoes() {
       <View style={{marginBottom: 10, paddingVertical: 20, borderBottomWidth: 1, borderBottomColor: "#DDDDDD",}}>
         <Text style={{fontSize: 32, fontWeight: "bold", color: isDarkTheme ? DarkTheme.colors.textprincconf : LightTheme.colors.textprincconf, textAlign: "center", marginBottom: 20,}}>{t("accessibility")}</Text>
         <View style={styles.pickerContainer}>
-          <Text style={{color: isDarkTheme ? "white" : "#333333"}}><Text style={{fontWeight: "bold"}}>{t("themes")}    </Text> {t("light")}</Text>
+          <Text style={{color: isDarkTheme ? "white" : "#333333"}}><Text style={{fontWeight: "bold"}}>{t("themes")}:    </Text> {t("light")}</Text>
           <Switch value={isDarkTheme} trackColor={{false: "darkgrey", true: "white"}} thumbColor={isDarkTheme ? "white" : "darkgrey"} onChange={() => {
             setIsDarkTheme(prev => !prev)
           }}/>

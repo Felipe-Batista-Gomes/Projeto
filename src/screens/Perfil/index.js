@@ -84,8 +84,6 @@ export default function Perfil() {
             </Text>
           </View>
           <Text style={[styles.userName, {color: isDarkTheme ?  "white" : "black"}]}>{userData.name}</Text>
-          <Text style={[styles.userName, {color: isDarkTheme ?  "white" : "black"}]}>{userData.email}</Text>
-          <Text style={[styles.userName, {color: isDarkTheme ?  "white" : "black"}]}>{userData.username}</Text>
         </View>
 
         <Text style={[styles.description, {color: isDarkTheme ?  "#DEDEDE" : "#393D40"}]}>
@@ -102,6 +100,7 @@ export default function Perfil() {
                 type="custom"
                 ratingColor="orange"
                 ratingBackgroundColor= "darkgrey"
+                tintColor={isDarkTheme ? "#37373B" : "#F5F5F5"}
                 ratingCount={5}
                 imageSize={20}
                 readonly
