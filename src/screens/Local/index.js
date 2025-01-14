@@ -226,16 +226,14 @@ export default function Local() {
         {/* Feedback Form */}
         <View style={[styles.feedbackForm, {backgroundColor: isDarkTheme ? DarkTheme.colors.background : "#f9f9f9"}]}>
           <Text style={[styles.feedbackFormTitle, {color: isDarkTheme ? "#ddd" : "#555"}]}>Deixe seu feedback</Text>
-          <RatingComponent
+          <RatingDisplay
             startingValue={userRating}
             onFinishRating={(rating) => setUserRating(rating)}
-            imageSize={30}
+            imageSize={50}
             minValue={1}
             ratingCount={5}
             showRating={false}
             defaultRating={1}
-            ratingBackgroundColor="#ccc"
-            ratingColor="#FFD700"
             tintColor={isDarkTheme ? "#37373B" : "#F5F5F5"}
           />
           <TextInput

@@ -91,7 +91,7 @@ export default function Principal() {
           {places.map((place) => (
             <Pressable
               key={place._id}
-              style={styles.touristItem}
+              style={[styles.touristItem, {backgroundColor: isDarkTheme ? "#555" : "#eee"}]}
               onPress={() => {
                 navigation.navigate("Local", { id: place._id });
               }}
@@ -104,16 +104,17 @@ export default function Principal() {
                 />
               </View>
               <View style={styles.touristTextContainer}>
-                <Text style={styles.ponto}>{place.name}</Text>
+                <Text style={[styles.ponto, {color: isDarkTheme ? "white" : "black"}]}>{place.name}</Text>
                 <Rating
                   readonly
                   startingValue={place.averageRating || 1}
                   imageSize={20}
                   ratingBackgroundColor="#ccc"
                   ratingColor="#FFD700"
+                  tintColor={isDarkTheme ? "#555" : "#eee"}
                   style={styles.rating}
                 />
-                <Text style={styles.desc}>{place.description}</Text>
+                <Text style={[styles.desc, {color: isDarkTheme ? "#eee" : "#555"}]}>{place.description}</Text>
               </View>
             </Pressable>
           ))}
@@ -168,7 +169,6 @@ const styles = StyleSheet.create({
   desc: {
     fontSize: 14,
     marginTop: 5,
-    color: "#555",
   },
   carouselImage: {
     width: screenWidth,
