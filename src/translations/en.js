@@ -28,5 +28,6 @@ export default {
       "saveChanges": "Save Changes",
       "feedbackTitle": "Leave your feedback here",
       "feedbackWrite": "Write your feedback here",
+      "addPlaceScreenTitle": "Add Place"
     }
   };

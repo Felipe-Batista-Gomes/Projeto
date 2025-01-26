@@ -28,5 +28,6 @@ export default {
         "saveChanges": "Guardar Cambios",
         "feedbackTitle": "Deje aquí su comentario",
         "feedbackWrite": "Escriba aquí su comentario.",
+        "addPlaceScreenTitle": "Adicionar Lugar"
       }
     };

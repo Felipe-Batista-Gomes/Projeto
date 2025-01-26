@@ -28,5 +28,6 @@ export default {
       "saveChanges": "Enregistrer les modifications",
       "feedbackTitle": "Laissez votre commentaire ici",
       "feedbackWrite": "Écrivez votre commentaire ici.",
+      "addPlaceScreenTitle": "Ajouter un lieu"
     }
   };

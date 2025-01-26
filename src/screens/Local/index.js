@@ -231,6 +231,7 @@ export default function Local() {
             onFinishRating={(rating) => setUserRating(rating)}
             imageSize={50}
             minValue={1}
+            fractions={0}
             ratingCount={5}
             showRating={false}
             defaultRating={1}

@@ -52,7 +52,7 @@ isDarkTheme ? "white" : "black",borderWidth:1,borderColor:isDarkTheme? "white" :
             style={{
               backgroundColor: 'transparent',
               borderTopWidth: 8,
-              borderTopColor: isDarkTheme ? "lightgrey" : "blsck",
+              borderTopColor: isDarkTheme ? "lightgrey" : "black",
               borderRightWidth: 10,
               alignItems:'center',
               justifyContent:'center',
