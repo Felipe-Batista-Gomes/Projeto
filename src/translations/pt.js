@@ -28,6 +28,7 @@ export default {
       "saveChanges": "Salvar Mudanças",
       "themes": "Temas:",
       "light": "Claro",
-      "dark": "Escuro"
+      "dark": "Escuro",
+      "HomeScreenOne": "Bem Vindo"
     }
   }

@@ -5,6 +5,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTranslation } from "react-i18next";
 
+import Animacao from "../screens/Animacao";
 import Prob from "../screens/Prob";
 import Login from "../screens/Login";
 import Local from "../screens/Local";
@@ -55,7 +56,13 @@ export default function Routes() {
             backgroundColor: isDarkTheme ? DarkTheme.colors.background : LightTheme.colors.background
           },
         }}
-      >
+        >
+        <Drawer.Screen
+          name="Tela Inicial"
+          component={Animacao}
+          options={{ headerTitle: t("")}}
+        />
+      
         <Drawer.Screen
           name="Principal"
           component={Principal}
