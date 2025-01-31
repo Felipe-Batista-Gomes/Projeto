@@ -5,10 +5,10 @@ export default {
         "settingsScreenTitle": "Ajustes",
         "localScreenTitle": "Pantalla de establecimiento",
         "accessibility": "Accesibilidad",
-        "theme": "Themes",
-        "selectTheme": "select a theme",
+        "themes": "Temas",
+        "selectTheme": "Seleccione un tema",
         "light": "Claro",
-        "dark": "Escuro",
+        "dark": "Oscuro",
         "languages": "Lenguas",
         "selectLanguage": "Selecciona un idioma...",
         "mainTouristTitle": "Principales atracciones turísticas",
@@ -26,8 +26,8 @@ export default {
         "changeNamePlaceholder": "Introduzca aquí su nuevo nombre de usuario...",
         "changeDescriptionPlaceholder": "Introduzca aquí su nueva descripción...",
         "saveChanges": "Guardar Cambios",
-        "themes": "Temas",
-        "light": "Claro",
-        "dark": "Oscuro"
+        "feedbackTitle": "Deje aquí su comentario",
+        "feedbackWrite": "Escriba aquí su comentario.",
+        "addPlaceScreenTitle": "Adicionar Lugar"
       }
     };

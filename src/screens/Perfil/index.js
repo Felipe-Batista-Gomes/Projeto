@@ -47,6 +47,7 @@ export default function Perfil() {
 
       const data = await response.json();
       setUserData(data);
+      console.log(data);
       return 0;  // Success code
     } catch (error) {
       console.error(error);
@@ -64,7 +65,7 @@ export default function Perfil() {
   if (!userData) {
     return (
       <View style={styles.loadingContainer}>
-        <Text>{t("profileLoading")}</Text>
+        <Text style={{color: isDarkTheme? "white" : "black"}}>{t("profileLoading")}</Text>
       </View>
     );
   }
@@ -99,6 +100,7 @@ export default function Perfil() {
                 type="custom"
                 ratingColor="orange"
                 ratingBackgroundColor= "darkgrey"
+                tintColor={isDarkTheme ? "#37373B" : "#F5F5F5"}
                 ratingCount={5}
                 imageSize={20}
                 readonly

@@ -5,6 +5,10 @@ export default {
       "settingsScreenTitle": "Paramètres",
       "localScreenTitle": "Locale",
       "accessibility": "Accessibilité",
+      "themes": "Thèmes",
+      "selectTheme": "Sélectionnez un thème",
+      "light": "Clair",
+      "dark": "Sombre",
       "languages": "Langues",
       "selectLanguage": "Sélectionner une langue...",
       "mainTouristTitle": "Principaux sites touristiques",
@@ -18,12 +22,12 @@ export default {
       "profileFeedbackPlaceholder": "Votre avis sur l'établissement est ici. Vous pouvez écrire un commentaire sur votre expérience.",
       "profileSection": "Profil",
       "logoutButton": "Déconnexion",
-      "changeProfile": "Modifier le profil",
-      "changeNamePlaceholder": "Écrivez votre nouveau nom d'utilisateur ici",
-      "changeDescriptionPlaceholder": "Écrivez votre nouvelle description ici...",
+      "changeProfile": "Changer de profil",
+      "changeNamePlaceholder": "Entrez votre nouveau nom d'utilisateur ici",
+      "changeDescriptionPlaceholder": "Entrez votre nouvelle description ici",
       "saveChanges": "Enregistrer les modifications",
-      "themes": "Thèmes:",
-      "light": "Clair",
-      "dark": "Foncé"
+      "feedbackTitle": "Laissez votre commentaire ici",
+      "feedbackWrite": "Écrivez votre commentaire ici.",
+      "addPlaceScreenTitle": "Ajouter un lieu"
     }
   };

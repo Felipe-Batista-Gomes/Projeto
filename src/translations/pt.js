@@ -5,7 +5,7 @@ export default {
       "settingsScreenTitle": "Configurações",
       "localScreenTitle": "Tela de Estabelecimento",
       "accessibility": "Acessibilidade",
-      "theme": "Temas",
+      "themes": "Temas",
       "selectTheme": "selecione um tema",
       "light": "Claro",
       "dark": "Escuro",
@@ -26,9 +26,9 @@ export default {
       "changeNamePlaceholder": "Escreva aqui seu novo nome de usuário...",
       "changeDescriptionPlaceholder": "Escreva aqui sua nova descrição...",
       "saveChanges": "Salvar Mudanças",
-      "themes": "Temas:",
-      "light": "Claro",
-      "dark": "Escuro",
+      "feedbackTitle": "Deixe aqui o seu feedback",
+      "feedbackWrite": "Escreva seu feedback aqui.",
+      "addPlaceScreenTitle": "Adicionar Local",
       "HomeScreenOne": "Bem Vindo"
     }
   }

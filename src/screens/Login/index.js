@@ -92,10 +92,10 @@ export default function Login() {
               backgroundColor: "white",
               color: "darkblue",
               borderBottomWidth: 1,
-              borderColor: "darkblue",
+              borderColor: isDarkTheme ? "cyan" : "darkblue",
             }}
           >
-            <Text style={{ color: "darkblue", backgroundColor: isDarkTheme ? DarkTheme.colors.background : LightTheme.colors.background}}>Esqueceu sua senha?</Text>
+          <Text style={{ color: isDarkTheme ? "cyan" : "darkblue", backgroundColor: isDarkTheme ? DarkTheme.colors.background : LightTheme.colors.background}}>Esqueceu sua senha?</Text>
           </Pressable>
 
           <Pressable onPress={handleLogin} style={styles.botao}>

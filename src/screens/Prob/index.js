@@ -26,7 +26,7 @@ export default function Prob() {
           style={styles.logo}
         />
         <Text style={[styles.titulo, {color: isDarkTheme ? "#DDD" : "black"}]}>Não consegue logar?</Text>
-        <Text style={{ color: isDarkTheme ? "#CCC" : "darkgrey", paddingBottom: 10, fontSize: 13 }}>
+        <Text style={{ color: isDarkTheme ? "#CCC" : "#1b1b1b", paddingBottom: 10, fontSize: 13, width: "70%" }}>
           Informe seu email, e te mandaremos um código para redefinir sua senha.
         </Text>
         <TextInput
@@ -44,7 +44,7 @@ export default function Prob() {
           onPress={() => {
             navigation.navigate("Login");
           }}
-          style={styles.botao}
+          style={[styles.botao, {marginTop: 0}]}
         >
           <Text style={styles.buttxt}>Voltar à tela de login</Text>
         </Pressable>

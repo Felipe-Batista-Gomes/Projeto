@@ -5,7 +5,7 @@ export default {
       "settingsScreenTitle": "Settings",
       "localScreenTitle": "Local",
       "accessibility": "Accessibility",
-      "theme": "Themes",
+      "themes": "Themes",
       "selectTheme": "select a theme",
       "light": "Light",
       "dark": "Dark",
@@ -26,8 +26,8 @@ export default {
       "changeNamePlaceholder": "Write your new user name here...",
       "changeDescriptionPlaceholder": "Write your new description here...",
       "saveChanges": "Save Changes",
-      "themes": "Themes:",
-      "light": "Light",
-      "dark": "Dark"
+      "feedbackTitle": "Leave your feedback here",
+      "feedbackWrite": "Write your feedback here",
+      "addPlaceScreenTitle": "Add Place"
     }
   };

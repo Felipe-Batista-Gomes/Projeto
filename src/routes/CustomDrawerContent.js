@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { View, Text, Pressable } from "react-native";
 import {
   DrawerContentScrollView,
@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 const CustomDrawerContent = (props) => {
   const navigation = useNavigation();
   const { t } = useTranslation();
+  const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
 
   const handleLogout = async () => {
     await AsyncStorage.removeItem("token");
@@ -23,6 +24,7 @@ const CustomDrawerContent = (props) => {
         {Object.keys(props.descriptors).map((key) => {
           const { options, navigation, route } = props.descriptors[key];
           const isHidden = options.drawerItemStyle?.display === "none";
+          
 
           // Only show items that are not hidden (with drawerItemStyle: { display: "none" })
           if (!isHidden) {
@@ -34,10 +36,10 @@ const CustomDrawerContent = (props) => {
                   paddingVertical: 10,
                   paddingHorizontal: 20,
                   borderBottomWidth: 1,
-                  borderColor: "#ccc",
+                  borderColor: isDarkTheme ? "#ccc" : "black",
                 }}
               >
-                <Text style={{ fontSize: 16 }}>
+                <Text style={{ fontSize: 16 , color: isDarkTheme ? "#ccc" : "black"}}>
                   {options.headerTitle || route.name}
                 </Text>
               </Pressable>
