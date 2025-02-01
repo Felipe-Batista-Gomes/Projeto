@@ -9,26 +9,34 @@ import {
 
 import * as Animatable from 'react-native-animatable'
 
+import { useNavigation } from '@react-navigation/native'
+
 export default function Animacao() {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
 
         <View style={styles.containerLogo}>
-            <Image 
+            <Animatable.Image 
+              animation='flipInY'
               source={require('../../../assets/logo.png')}
-              style={styles.logo}
+              style={{ width: '60%'}}
               resizeMode="contain"
             />
         </View>
 
-        <View style={styles.containerForm}>
-            <Text style={styles.title}>Abada</Text>
-            <Text style={styles.text}>JAJAJJA</Text>
+        <Animatable.View delay={800} animation="fadeInUp" style={styles.containerForm}>
+            <Text style={styles.title}>Bem Vindo ao Your Slum!</Text>
+            <Text style={styles.text}>Para iniciarmos clique em Acessar</Text>
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity 
+            style={styles.button}
+            onPress={() =>
+                 navigation.navigate("Login")}>
                 <Text style={styles.buttonText}>Acessar</Text>
             </TouchableOpacity>
-        </View>
+        </Animatable.View>
     </View>
     );
 }
@@ -36,45 +44,49 @@ export default function Animacao() {
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor: '#38a69d'
+        backgroundColor: 'orange'
     },
     containerLogo:{
         flex:2,
-        backgroundColor: '#38a69d',
+        backgroundColor: '#orange',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        
     },
     containerForm: {
-        flex:1,
+        flex: 1,
         backgroundColor:'#FFF',
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25,
-        paddingStart: '5%',
-        paddingEnd: '5%'
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50,
+        paddingStart: '10%',
+        paddingEnd: '10%'
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginTop: 28,
-        marginBottom: 12,
+        marginTop: 30,
+        marginBottom: 15,
     },
     text: {
-        color: '#a1a1a1'
+        color: 'black',
+        marginBottom: 30,
+        fontWeight: 'bold'
     },
     button: {
-        position: 'absolute',
-        backgroundColor: '#38a69d',
-        borderRadius: 50,
-        paddingVertical: 8,
+        posicion: 'absolute',
+        backgroundColor: 'orange',
+        borderRadius: 25,
+        paddingVertical: 15,
         width: '60%',
         alignSelf: 'center',
-        bottom: '15%',
+        bottom: '1%',
         alignItems: "center",
-        justifyContent: 'center'
+        justifyContent: 'center',
+        fontWeight: 'bold'
     },
-    buttonText: {
-        fontSize: 18,
-        color: "#FFF",
+    buttomText: {
+        fontSize: 20,
+        color: '#FFF',
         fontWeight: 'bold'
     }       
 })
