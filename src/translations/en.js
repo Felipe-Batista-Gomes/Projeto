@@ -28,6 +28,10 @@ export default {
       "saveChanges": "Save Changes",
       "feedbackTitle": "Leave your feedback here",
       "feedbackWrite": "Write your feedback here",
-      "addPlaceScreenTitle": "Add Place"
+      "addPlaceScreenTitle": "Add Place",
+      "addPlaceImage": "Choose the image of the place",
+      "addPlaceName": "What is the name of the place?",
+      "addPlaceDescription": "What is the description of the place?",
+      "addPlaceOffer": "What does your establishment offer?"
     }
   };

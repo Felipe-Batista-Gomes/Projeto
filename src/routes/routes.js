@@ -13,6 +13,7 @@ import Registro from "../screens/Registro";
 import Principal from "../screens/Principal";
 import Configuracoes from "../screens/Configuracoes";
 import AddLocal from "../screens/AddLocal";
+import Animacao from "../screens/Animacao"
 import CustomDrawerContent from "./CustomDrawerContent";
 import DarkTheme from "../themes/darktheme";
 import LightTheme from "../themes/lighttheme";
@@ -76,6 +77,11 @@ export default function Routes() {
           name="Adicionar Local"
           component={AddLocal}
           options={{ headerTitle: t("addPlaceScreenTitle") }}
+        />
+        <Drawer.Screen
+          name="Animações"
+          component={Animacao}
+          options={{ headerTitle: "Animações" }}
         />
         <Drawer.Screen
           name="Login"

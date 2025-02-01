@@ -28,6 +28,10 @@ export default {
       "saveChanges": "Enregistrer les modifications",
       "feedbackTitle": "Laissez votre commentaire ici",
       "feedbackWrite": "Écrivez votre commentaire ici.",
-      "addPlaceScreenTitle": "Ajouter un lieu"
+      "addPlaceScreenTitle": "Ajouter un lieu",
+      "addPlaceImage": "Choisir l'image du lieu",
+      "addPlaceName": "Quel est le nom du lieu?",
+      "addPlaceDescription": "Quelle est la description du lieu?",
+      "addPlaceOffer": "Qu'offre votre établissement?"
     }
   };

@@ -28,6 +28,10 @@ export default {
       "saveChanges": "Salvar Mudanças",
       "feedbackTitle": "Deixe aqui o seu feedback",
       "feedbackWrite": "Escreva seu feedback aqui.",
-      "addPlaceScreenTitle": "Adicionar Local"
+      "addPlaceScreenTitle": "Adicionar Local",
+      "addPlaceImage": "Escolher a imagem do local",
+      "addPlaceName": "Qual é o nome do lugar?",
+      "addPlaceDescription": "Qual é a descrição do lugar?",
+      "addPlaceOffer": "O que seu estabelecimento oferece?"
     }
   }
