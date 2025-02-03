@@ -32,6 +32,7 @@ export default {
       "addPlaceImage": "Choose the image of the place",
       "addPlaceName": "What is the name of the place?",
       "addPlaceDescription": "What is the description of the place?",
-      "addPlaceOffer": "What does your establishment offer?"
+      "addPlaceOffer": "What does your establishment offer?",
+      "addPlaceButton": "Add place"
     }
   };

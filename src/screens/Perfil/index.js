@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useContext } from "react";
+import React, { useState, useMemo, useContext, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -17,43 +17,93 @@ import AppContext from "../../themes/AppContext";
 export default function Perfil() {
   const navigation = useNavigation();
   const [userData, setUserData] = useState(null);
+  const [feedbacks, setFeedbacks] = useState([]);
   const { t } = useTranslation();
+
+  const [places, setPlaces] = useState([]);
+  const [ids, setIds] = useState([]);
 
   const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
 
+  const BACKEND_URL =
+    "https://backend-ornz.onrender.com";
+
   
-
-  const fetchUserData = async () => {
-    try {
-      const token = await AsyncStorage.getItem("token");
-      if (!token) {
-        navigation.navigate("Login");
-        return 1;  // Error code for missing token
-      }
-
-      const response = await fetch(
-        "https://backend-ornz.onrender.com/api/users/getuser",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+    const fetchUserData = async () => {
+      try {
+        const token = await AsyncStorage.getItem("token");
+        if (!token) {
+          navigation.navigate("Login");
+          return 1;  // Error code for missing token
         }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch user data");
+  
+        const response = await fetch(
+          "https://backend-ornz.onrender.com/api/users/getuser",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+  
+        if (!response.ok) {
+          throw new Error("Failed to fetch user data");
+        }
+  
+        const data = await response.json();
+        setUserData(data);
+        console.log(data);
+        return 0;  // Success code
+      } catch (error) {
+        console.error(error);
+        return 2;  // Error code for fetch failure
       }
+    };
 
-      const data = await response.json();
-      setUserData(data);
-      console.log(data);
-      return 0;  // Success code
+    useEffect(() => {
+        const fetchPlaces = async () => {
+          try {
+            const response = await fetch(
+              "https://backend-ornz.onrender.com/api/locals/"
+            );
+            if (!response.ok) {
+              throw new Error(t("fetchError"));
+            }
+            const data = await response.json();
+            setPlaces(data);
+            console.log(data[2]);
+          } catch (error) {
+            console.error(error);
+          }
+        };
+        fetchPlaces();
+      }, []);
+
+  const fetchFeedbacks = async () => {
+    try {
+      places.map(place => {setIds(place._id)})
+      ids.forEach(id => {
+        const respons = fetch(`${BACKEND_URL}/api/locals/${id}`);  
+      });
+      
+      if (!respons.ok) {
+        throw new Error("Failed to fetch places ");
+      }
+      const dateau = await respons.json();
+      if(dateau.user._id == userData._id){
+        setFeedbacks(dateau.feedbacks);
+      }
+      console.log(dateau.user._id)
+      console.log(feedbacks)
     } catch (error) {
-      console.error(error);
-      return 2;  // Error code for fetch failure
+      return;
     }
   };
+  
+  useEffect(() => {
+    fetchFeedbacks();
+  })
 
   // Fetch user data when the screen is focused
   useFocusEffect(
@@ -92,25 +142,7 @@ export default function Perfil() {
 
         <Text style={[styles.sectionTitle, {borderColor: isDarkTheme ? "lightgrey" : "grey", color: isDarkTheme ? "#DEDEDE" : "black"}]}>{t("profileFeedbackTitle")}</Text>
         <View style={styles.feedbackContainer}>
-          <View style={styles.feedbackItem}>
-            <View style={styles.feedbackImage}></View>
-            <View style={styles.feedbackTextContainer}>
-              <Text style={[styles.feedbackPlace, {borderColor: isDarkTheme ? "lightgrey" : "grey", color: isDarkTheme ? "#DEDEDE" : "black"}]}>{t("profileFeedbackPlace")}</Text>
-              <Rating
-                type="custom"
-                ratingColor="orange"
-                ratingBackgroundColor= "darkgrey"
-                tintColor={isDarkTheme ? "#37373B" : "#F5F5F5"}
-                ratingCount={5}
-                imageSize={20}
-                readonly
-                startingValue={4}
-              />
-              <Text style={[styles.feedbackText, {borderColor: isDarkTheme ? "lightgrey" : "grey", color: isDarkTheme ? "#DEDEDE" : "black"}]}>
-                {t("profileFeedbackPlaceholder")}
-              </Text>
-            </View>
-          </View>
+        {feedbacks.map(feedback => <Text key={feedback._id}>{feedback.comment}</Text>)}
         </View>
       </ScrollView>
     </View>

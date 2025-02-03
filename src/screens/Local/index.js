@@ -77,6 +77,7 @@ export default function Local() {
         throw new Error("Failed to fetch place details");
       }
       const data = await response.json();
+      console.log(data)
       setPlace(data);
       setFeedbacks(data.feedbacks);
 

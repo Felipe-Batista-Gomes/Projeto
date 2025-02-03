@@ -1,9 +1,9 @@
 export default {
     translation: {
-      "homeScreenTitle": "Tela Principal",
-      "profileScreenTitle": "Tela do Perfil",
+      "homeScreenTitle": "Principal",
+      "profileScreenTitle": "Perfil",
       "settingsScreenTitle": "Configurações",
-      "localScreenTitle": "Tela de Estabelecimento",
+      "localScreenTitle": "Local",
       "accessibility": "Acessibilidade",
       "themes": "Temas",
       "selectTheme": "selecione um tema",
@@ -33,6 +33,7 @@ export default {
       "addPlaceName": "Qual é o nome do lugar?",
       "addPlaceDescription": "Qual é a descrição do lugar?",
       "addPlaceOffer": "O que seu estabelecimento oferece?",
-      "HomeScreenOne": "Bem Vindo"
+      "HomeScreenOne": "Bem Vindo",
+      "addPlaceButton": "Adicionar Local"
     }
   }

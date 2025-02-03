@@ -4,8 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTranslation } from "react-i18next";
+import { Icon } from "react-native-vector-icons/FontAwesome";
 
-import Animacao from "../screens/Animacao";
 import Prob from "../screens/Prob";
 import Login from "../screens/Login";
 import Local from "../screens/Local";
@@ -47,7 +47,7 @@ export default function Routes() {
 
   return (
       <Drawer.Navigator
-        initialRouteName={isLoggedIn ? "Principal" : "Login"}
+        initialRouteName={isLoggedIn ? "Principal" : "Tela Inicial"}
         drawerContent={(props) => <CustomDrawerContent {...props} />}
         screenOptions={{
           drawerStyle: {
@@ -62,7 +62,7 @@ export default function Routes() {
         <Drawer.Screen
           name="Tela Inicial"
           component={Animacao}
-          options={{ headerTitle: t("")}}
+          options={{ headerShown: false, drawerItemStyle: {display: "none"}}}
         />
       
         <Drawer.Screen
@@ -88,7 +88,7 @@ export default function Routes() {
         <Drawer.Screen
           name="Animações"
           component={Animacao}
-          options={{ headerTitle: "Animações" }}
+          options={{ headerShown: false, drawerItemStyle: { display: "none" } }}
         />
         <Drawer.Screen
           name="Login"

@@ -80,6 +80,15 @@ export default function AddLocal() {
           console.log(widthB)
         }
 
+        if(result.assets[0].height < 2000){
+          setHeightB(true);
+          console.log(heightB)
+        }else {
+          setHeightB(false)
+          console.log(heightB)
+        }
+
+
 
         setError(null);
       }
@@ -120,7 +129,7 @@ export default function AddLocal() {
                     size= {60}
                     color={isDarkTheme ? "black" : "white"}
                   />
-                  <Text style={{fontSize: 12, fontWeight: 700}}>Escolher imagem</Text>
+                  <Text style={{fontSize: 12, fontWeight: 700, color: isDarkTheme ? "black" : "white"}}>Escolher imagem</Text>
                   </Pressable>
                   <Pressable onPress={set} style={{padding: 10, alignItems: "center", flexDirection: "column",  borderRadius: 20, backgroundColor: isDarkTheme ? "white" : "darkgrey"}}>
                   <Icon
@@ -129,7 +138,7 @@ export default function AddLocal() {
                     iconStyle={{width: 65,}}
                     color={isDarkTheme ? "black" : "white"}
                   />
-                  <Text style={{fontSize: 12, fontWeight: 700}}>Excluir imagem</Text>
+                  <Text style={{fontSize: 12, fontWeight: 700, color: isDarkTheme ? "black" : "white"}}>Excluir imagem</Text>
                   </Pressable>
                 </View>
               </View>
@@ -196,6 +205,11 @@ export default function AddLocal() {
           placeholder={t("addPlaceOffer")}
           placeholderTextColor={isDarkTheme ? "#FFF" : "black"}
         />
+
+
+        <Pressable style={styles.salvar}>
+          <Text style={styles.stexto}>{t("addPlaceButton")}</Text>
+        </Pressable>
       </ScrollView>
     </View>
   );
@@ -262,5 +276,20 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center",
+  },
+  stexto: {
+    color: "white",
+    fontWeight: "bold",
+  },
+  salvar: {
+    backgroundColor: "red",
+    marginTop: 40,
+    marginBottom: 10,
+    borderRadius: 15,
+    width: "80%",
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center"
   },
 });
