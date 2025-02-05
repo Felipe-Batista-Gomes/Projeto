@@ -1,10 +1,5 @@
 import React, { useState, useMemo, useContext, useEffect } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  ScrollView,
-} from "react-native";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { Rating } from "react-native-ratings";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -22,88 +17,84 @@ export default function Perfil() {
 
   const [places, setPlaces] = useState([]);
   const [ids, setIds] = useState([]);
+  const [userId, setUserId] = useState();
 
-  const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
+  const { isDarkTheme, setIsDarkTheme } = useContext(AppContext);
 
-  const BACKEND_URL =
-    "https://backend-ornz.onrender.com";
+  const BACKEND_URL = "https://backend-ornz.onrender.com";
 
-  
-    const fetchUserData = async () => {
+  const fetchUserData = async () => {
+    try {
+      const token = await AsyncStorage.getItem("token");
+      if (!token) {
+        navigation.navigate("Login");
+        return 1; // Error code for missing token
+      }
+
+      const response = await fetch(
+        "https://backend-ornz.onrender.com/api/users/getuser",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch user data");
+      }
+
+      const data = await response.json();
+      setUserData(data);
+      setUserId(data._id);
+      return 0; // Success code
+    } catch (error) {
+      console.error(error);
+      return 2; // Error code for fetch failure
+    }
+  };
+
+  useEffect(() => {
+    const fetchPlaces = async () => {
       try {
-        const token = await AsyncStorage.getItem("token");
-        if (!token) {
-          navigation.navigate("Login");
-          return 1;  // Error code for missing token
-        }
-  
         const response = await fetch(
-          "https://backend-ornz.onrender.com/api/users/getuser",
-          {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
+          "https://backend-ornz.onrender.com/api/locals/"
         );
-  
         if (!response.ok) {
-          throw new Error("Failed to fetch user data");
+          throw new Error(t("fetchError"));
         }
-  
         const data = await response.json();
-        setUserData(data);
-        console.log(data);
-        return 0;  // Success code
+        setPlaces(data.map((dateau) => dateau._id));
       } catch (error) {
         console.error(error);
-        return 2;  // Error code for fetch failure
       }
     };
-
-    useEffect(() => {
-        const fetchPlaces = async () => {
-          try {
-            const response = await fetch(
-              "https://backend-ornz.onrender.com/api/locals/"
-            );
-            if (!response.ok) {
-              throw new Error(t("fetchError"));
-            }
-            const data = await response.json();
-            setPlaces(data);
-            console.log(data[2]);
-          } catch (error) {
-            console.error(error);
-          }
-        };
-        fetchPlaces();
-      }, []);
+    fetchPlaces();
+  }, []);
 
   const fetchFeedbacks = async () => {
     try {
-      places.map(place => {setIds(place._id)})
-      ids.forEach(id => {
-        const respons = fetch(`${BACKEND_URL}/api/locals/${id}`);  
-      });
+      const response = await fetch(
+        `https://backend-ornz.onrender.com/api/locals/${places[0]}`
+      );
+      const data = await response.json();
+      for(const item in data.feedbacks){
+        if(data.feedbacks[item].user._id = userData._id){
+          console.log(data.feedbacks[item].user.name);
+        }else{
+          console.log("Não Foi");
+        }
+      }
       
-      if (!respons.ok) {
-        throw new Error("Failed to fetch places ");
-      }
-      const dateau = await respons.json();
-      if(dateau.user._id == userData._id){
-        setFeedbacks(dateau.feedbacks);
-      }
-      console.log(dateau.user._id)
-      console.log(feedbacks)
     } catch (error) {
       return;
     }
   };
-  
+
   useEffect(() => {
     fetchFeedbacks();
-  })
+  });
 
   // Fetch user data when the screen is focused
   useFocusEffect(
@@ -115,7 +106,9 @@ export default function Perfil() {
   if (!userData) {
     return (
       <View style={styles.loadingContainer}>
-        <Text style={{color: isDarkTheme? "white" : "black"}}>{t("profileLoading")}</Text>
+        <Text style={{ color: isDarkTheme ? "white" : "black" }}>
+          {t("profileLoading")}
+        </Text>
       </View>
     );
   }
@@ -133,16 +126,38 @@ export default function Perfil() {
                 .toUpperCase()}
             </Text>
           </View>
-          <Text style={[styles.userName, {color: isDarkTheme ?  "white" : "black"}]}>{userData.name}</Text>
+          <Text
+            style={[
+              styles.userName,
+              { color: isDarkTheme ? "white" : "black" },
+            ]}
+          >
+            {userData.name}
+          </Text>
         </View>
 
-        <Text style={[styles.description, {color: isDarkTheme ?  "#DEDEDE" : "#393D40"}]}>
+        <Text
+          style={[
+            styles.description,
+            { color: isDarkTheme ? "#DEDEDE" : "#393D40" },
+          ]}
+        >
           {t("profileDescriptionPlaceholder")}
         </Text>
 
-        <Text style={[styles.sectionTitle, {borderColor: isDarkTheme ? "lightgrey" : "grey", color: isDarkTheme ? "#DEDEDE" : "black"}]}>{t("profileFeedbackTitle")}</Text>
+        <Text
+          style={[
+            styles.sectionTitle,
+            {
+              borderColor: isDarkTheme ? "lightgrey" : "grey",
+              color: isDarkTheme ? "#DEDEDE" : "black",
+            },
+          ]}
+        >
+          {t("profileFeedbackTitle")}
+        </Text>
         <View style={styles.feedbackContainer}>
-        {feedbacks.map(feedback => <Text key={feedback._id}>{feedback.comment}</Text>)}
+          <Text>{feedbacks}</Text>
         </View>
       </ScrollView>
     </View>
@@ -215,4 +230,4 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 5,
   },
-})
+});
