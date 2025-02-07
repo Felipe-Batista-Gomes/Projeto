@@ -1,10 +1,5 @@
-import React, { useState, useMemo, useContext } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  ScrollView,
-} from "react-native";
+import React, { useState, useMemo, useContext, useEffect } from "react";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { Rating } from "react-native-ratings";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -17,18 +12,23 @@ import AppContext from "../../themes/AppContext";
 export default function Perfil() {
   const navigation = useNavigation();
   const [userData, setUserData] = useState(null);
+  const [feedbacks, setFeedbacks] = useState([]);
   const { t } = useTranslation();
 
-  const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
+  const [places, setPlaces] = useState([]);
+  const [ids, setIds] = useState([]);
+  const [userId, setUserId] = useState();
 
-  
+  const { isDarkTheme, setIsDarkTheme } = useContext(AppContext);
+
+  const BACKEND_URL = "https://backend-ornz.onrender.com";
 
   const fetchUserData = async () => {
     try {
       const token = await AsyncStorage.getItem("token");
       if (!token) {
         navigation.navigate("Login");
-        return 1;  // Error code for missing token
+        return 1; // Error code for missing token
       }
 
       const response = await fetch(
@@ -47,13 +47,54 @@ export default function Perfil() {
 
       const data = await response.json();
       setUserData(data);
-      console.log(data);
-      return 0;  // Success code
+      setUserId(data._id);
+      return 0; // Success code
     } catch (error) {
       console.error(error);
-      return 2;  // Error code for fetch failure
+      return 2; // Error code for fetch failure
     }
   };
+
+  useEffect(() => {
+    const fetchPlaces = async () => {
+      try {
+        const response = await fetch(
+          "https://backend-ornz.onrender.com/api/locals/"
+        );
+        if (!response.ok) {
+          throw new Error(t("fetchError"));
+        }
+        const data = await response.json();
+        setPlaces(data.map((dateau) => dateau._id));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchPlaces();
+  }, []);
+
+  const fetchFeedbacks = async () => {
+    try {
+      const response = await fetch(
+        `https://backend-ornz.onrender.com/api/locals/${places[0]}`
+      );
+      const data = await response.json();
+      for(const item in data.feedbacks){
+        if(data.feedbacks[item].user._id = userData._id){
+          console.log(data.feedbacks[item].user.name);
+        }else{
+          console.log("Não Foi");
+        }
+      }
+      
+    } catch (error) {
+      return;
+    }
+  };
+
+  useEffect(() => {
+    fetchFeedbacks();
+  });
 
   // Fetch user data when the screen is focused
   useFocusEffect(
@@ -65,7 +106,9 @@ export default function Perfil() {
   if (!userData) {
     return (
       <View style={styles.loadingContainer}>
-        <Text style={{color: isDarkTheme? "white" : "black"}}>{t("profileLoading")}</Text>
+        <Text style={{ color: isDarkTheme ? "white" : "black" }}>
+          {t("profileLoading")}
+        </Text>
       </View>
     );
   }
@@ -83,34 +126,38 @@ export default function Perfil() {
                 .toUpperCase()}
             </Text>
           </View>
-          <Text style={[styles.userName, {color: isDarkTheme ?  "white" : "black"}]}>{userData.name}</Text>
+          <Text
+            style={[
+              styles.userName,
+              { color: isDarkTheme ? "white" : "black" },
+            ]}
+          >
+            {userData.name}
+          </Text>
         </View>
 
-        <Text style={[styles.description, {color: isDarkTheme ?  "#DEDEDE" : "#393D40"}]}>
+        <Text
+          style={[
+            styles.description,
+            { color: isDarkTheme ? "#DEDEDE" : "#393D40" },
+          ]}
+        >
           {t("profileDescriptionPlaceholder")}
         </Text>
 
-        <Text style={[styles.sectionTitle, {borderColor: isDarkTheme ? "lightgrey" : "grey", color: isDarkTheme ? "#DEDEDE" : "black"}]}>{t("profileFeedbackTitle")}</Text>
+        <Text
+          style={[
+            styles.sectionTitle,
+            {
+              borderColor: isDarkTheme ? "lightgrey" : "grey",
+              color: isDarkTheme ? "#DEDEDE" : "black",
+            },
+          ]}
+        >
+          {t("profileFeedbackTitle")}
+        </Text>
         <View style={styles.feedbackContainer}>
-          <View style={styles.feedbackItem}>
-            <View style={styles.feedbackImage}></View>
-            <View style={styles.feedbackTextContainer}>
-              <Text style={[styles.feedbackPlace, {borderColor: isDarkTheme ? "lightgrey" : "grey", color: isDarkTheme ? "#DEDEDE" : "black"}]}>{t("profileFeedbackPlace")}</Text>
-              <Rating
-                type="custom"
-                ratingColor="orange"
-                ratingBackgroundColor= "darkgrey"
-                tintColor={isDarkTheme ? "#37373B" : "#F5F5F5"}
-                ratingCount={5}
-                imageSize={20}
-                readonly
-                startingValue={4}
-              />
-              <Text style={[styles.feedbackText, {borderColor: isDarkTheme ? "lightgrey" : "grey", color: isDarkTheme ? "#DEDEDE" : "black"}]}>
-                {t("profileFeedbackPlaceholder")}
-              </Text>
-            </View>
-          </View>
+          <Text>{feedbacks}</Text>
         </View>
       </ScrollView>
     </View>
@@ -183,4 +230,4 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 5,
   },
-})
+});

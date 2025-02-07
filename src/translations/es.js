@@ -1,9 +1,9 @@
 export default {
     translation: {
-        "homeScreenTitle": "Pantalla principal",
-        "profileScreenTitle": "Pantalla de perfil",
+        "homeScreenTitle": "Principal",
+        "profileScreenTitle": "Perfil",
         "settingsScreenTitle": "Ajustes",
-        "localScreenTitle": "Pantalla de establecimiento",
+        "localScreenTitle": "Lugar",
         "accessibility": "Accesibilidad",
         "themes": "Temas",
         "selectTheme": "Seleccione un tema",
@@ -29,6 +29,14 @@ export default {
         "feedbackTitle": "Deje aquí su comentario",
         "feedbackWrite": "Escriba aquí su comentario.",
         "addPlaceScreenTitle": "Adicionar Lugar",
+<<<<<<< HEAD
         "Acessibilidade": "Accesibilidad"
+=======
+        "addPlaceImage": "Elija la imagen del lugar",
+        "addPlaceName": "¿Cuál es el nombre del lugar?",
+        "addPlaceDescription": "¿Cuál es la descripción del lugar?",
+        "addPlaceOffer": "¿Qué ofrece su establecimiento?",
+        "addPlaceButton": "Adicionar"
+>>>>>>> 2105956a95bd615c1fdb7320df49f7e5c0f0cefe
       }
     };

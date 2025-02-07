@@ -58,6 +58,7 @@ export default function Principal() {
         }
         const data = await response.json();
         setPlaces(data);
+        console.log(data);
       } catch (error) {
         console.error(error);
       }

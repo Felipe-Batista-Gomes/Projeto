@@ -13,23 +13,37 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Ostra precisa de acesso à sua câmera"
+      },
+      "bundleIdentifier": "Ostra"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-localization"
+      "expo-localization",
+      [
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "Ostra precisa de acesso à sua câmera"
+        }
+      ]
     ],
     "extra": {
       "eas": {
-        "projectId": "da55e7a5-fd36-4443-9984-b147ffc4a871"
+        "projectId": "b98666ee-90be-43ca-8860-1e91c99e783c"
       }
     }
   }

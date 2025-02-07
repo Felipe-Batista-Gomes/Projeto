@@ -29,6 +29,14 @@ export default {
       "feedbackTitle": "Laissez votre commentaire ici",
       "feedbackWrite": "Écrivez votre commentaire ici.",
       "addPlaceScreenTitle": "Ajouter un lieu",
+<<<<<<< HEAD
       "Acessibilidade": "Accessibilité"
+=======
+      "addPlaceImage": "Choisir l'image du lieu",
+      "addPlaceName": "Quel est le nom du lieu?",
+      "addPlaceDescription": "Quelle est la description du lieu?",
+      "addPlaceOffer": "Qu'offre votre établissement?",
+      "addPlaceButton": "Ajouter un lieu"
+>>>>>>> 2105956a95bd615c1fdb7320df49f7e5c0f0cefe
     }
   };

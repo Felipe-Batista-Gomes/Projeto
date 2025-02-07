@@ -26,9 +26,20 @@ export default {
       "changeNamePlaceholder": "Write your new user name here...",
       "changeDescriptionPlaceholder": "Write your new description here...",
       "saveChanges": "Save Changes",
+<<<<<<< HEAD
       "themes": "Themes:",
       "light": "Light",
       "dark": "Dark",
       "Acessibilidade": "Accessibility",
+=======
+      "feedbackTitle": "Leave your feedback here",
+      "feedbackWrite": "Write your feedback here",
+      "addPlaceScreenTitle": "Add Place",
+      "addPlaceImage": "Choose the image of the place",
+      "addPlaceName": "What is the name of the place?",
+      "addPlaceDescription": "What is the description of the place?",
+      "addPlaceOffer": "What does your establishment offer?",
+      "addPlaceButton": "Add place"
+>>>>>>> 2105956a95bd615c1fdb7320df49f7e5c0f0cefe
     }
   };

@@ -1,9 +1,9 @@
 export default {
     translation: {
-      "homeScreenTitle": "Tela Principal",
-      "profileScreenTitle": "Tela do Perfil",
+      "homeScreenTitle": "Principal",
+      "profileScreenTitle": "Perfil",
       "settingsScreenTitle": "Configurações",
-      "localScreenTitle": "Tela de Estabelecimento",
+      "localScreenTitle": "Local",
       "accessibility": "Acessibilidade",
       "themes": "Temas",
       "selectTheme": "selecione um tema",
@@ -29,7 +29,16 @@ export default {
       "feedbackTitle": "Deixe aqui o seu feedback",
       "feedbackWrite": "Escreva seu feedback aqui.",
       "addPlaceScreenTitle": "Adicionar Local",
+<<<<<<< HEAD
       "HomeScreenOne": "Bem Vindo",
       "Acessibilidade": "Acessibilidade"
+=======
+      "addPlaceImage": "Escolher a imagem do local",
+      "addPlaceName": "Qual é o nome do lugar?",
+      "addPlaceDescription": "Qual é a descrição do lugar?",
+      "addPlaceOffer": "O que seu estabelecimento oferece?",
+      "HomeScreenOne": "Bem Vindo",
+      "addPlaceButton": "Adicionar Local"
+>>>>>>> 2105956a95bd615c1fdb7320df49f7e5c0f0cefe
     }
   }
