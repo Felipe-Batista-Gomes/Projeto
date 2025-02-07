@@ -29,6 +29,7 @@ export default {
       "feedbackTitle": "Deixe aqui o seu feedback",
       "feedbackWrite": "Escreva seu feedback aqui.",
       "addPlaceScreenTitle": "Adicionar Local",
-      "HomeScreenOne": "Bem Vindo"
+      "HomeScreenOne": "Bem Vindo",
+      "Acessibilidade": "Acessibilidade"
     }
   }

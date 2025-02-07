@@ -29,9 +29,9 @@ export default function Principal() {
 
   const carouselImages = [
     { id: 1, image: require('../../../assets/mirante.jpg') },
-    { id: 2, image: require('../../../assets/Nordestino.jpeg') },
+    { id: 2, image: require('../../../assets/Nordestino2.jpg') },
     { id: 3, image: require('../../../assets/Trapia.jpeg') },
-    { id: 4, image: require('../../../assets/Verde e Rosa.jpeg') },
+    { id: 4, image: require('../../../assets/VerdeRosa2.jpg') },
     { id: 5, image: require('../../../assets/complexo.jpeg') },
   ];
 
@@ -137,6 +137,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     paddingHorizontal: 20,
     textAlign: "center",
+    borderColor: 'black',
   },
   touristContainer: {
     paddingHorizontal: 20,
@@ -174,5 +175,7 @@ const styles = StyleSheet.create({
     width: screenWidth,
     height: 200,
     borderRadius: 8,
+    borderRadius: 8,
+    borderColor: 'black',
   },
 });

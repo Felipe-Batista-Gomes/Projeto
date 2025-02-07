@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import {
   StyleSheet,
   View,
@@ -14,11 +14,14 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import AppContext from "../../themes/AppContext";
 import DarkTheme from "../../themes/darktheme";
 import LightTheme from "../../themes/lighttheme";
+import * as Animatable from 'react-native-animatable';
+import { TouchableWithoutFeedback } from "react-native-web";
 
 export default function Login() {
   const navigation = useNavigation();
+  const ButtonRef = useRef();
 
-  const {isDarkTheme, setIsDarkTheme} = useContext(AppContext);
+  const { isDarkTheme, setIsDarkTheme } = useContext(AppContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -67,18 +70,18 @@ export default function Login() {
             source={require("../../../assets/logo.png")}
             style={styles.logo}
           />
-          <Text style={[styles.titulo, {color: isDarkTheme ? "#FFF" : "black"}]}>Login</Text>
+          <Text style={[styles.titulo, { color: isDarkTheme ? "#FFF" : "black" }]}>Login</Text>
           <TextInput
             placeholder="Digite seu email"
             placeholderTextColor={isDarkTheme ? "#FFF" : "darkgrey"}
-            style={[styles.input, {borderColor: isDarkTheme ? "#FFF" : "black", color: isDarkTheme ? "#FFF" : "black"}]}
+            style={[styles.input, { borderColor: isDarkTheme ? "#FFF" : "black", color: isDarkTheme ? "#FFF" : "black" }]}
             value={email}
             onChangeText={setEmail}
           />
           <TextInput
             placeholder="Digite sua senha"
             placeholderTextColor={isDarkTheme ? "#FFF" : "darkgrey"}
-            style={[styles.input, {borderColor: isDarkTheme ? "#FFF" : "black", color: isDarkTheme ? "#FFF" : "black"}]}
+            style={[styles.input, { borderColor: isDarkTheme ? "#FFF" : "black", color: isDarkTheme ? "#FFF" : "black" }]}
             value={password}
             onChangeText={setPassword}
             secureTextEntry={true}
@@ -95,9 +98,17 @@ export default function Login() {
               borderColor: isDarkTheme ? "cyan" : "darkblue",
             }}
           >
-          <Text style={{ color: isDarkTheme ? "cyan" : "darkblue", backgroundColor: isDarkTheme ? DarkTheme.colors.background : LightTheme.colors.background}}>Esqueceu sua senha?</Text>
+            <Text style={{ color: isDarkTheme ? "cyan" : "darkblue", backgroundColor: isDarkTheme ? DarkTheme.colors.background : LightTheme.colors.background }}>Esqueceu sua senha?</Text>
           </Pressable>
 
+          <TouchableWithoutFeedback onPress={() => ButtonRef.current.bounce()}>
+            <Animatable.View
+              animation="bounceInUp"
+              useNativeDriver
+              duration={3000}
+              ref={ButtonRef}
+            />
+          </TouchableWithoutFeedback>
           <Pressable onPress={handleLogin} style={styles.botao}>
             <Text style={styles.buttxt}>Entrar</Text>
           </Pressable>
